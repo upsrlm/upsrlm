@@ -1,0 +1,25 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Yii2 runtime and assets
+**/runtime/
+**/web/assets/
+
+# Tests
+**/tests/_output/
+**/tests/_support/_generated/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# IDE/editor
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
