@@ -47,7 +47,7 @@ use common\models\User;
                                     'visible' => ($model->photo_profile != NULL),
                                     'format' => 'raw',
                                     'value' => $model->photo_profile != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_profile") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_profile") . '" data-src="' . $model->getImageUrl("photo_profile") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                 ],
                             ],
@@ -68,7 +68,7 @@ use common\models\User;
                                     'visible' => ($model->photo_aadhaar_front != NULL),
                                     'format' => 'raw',
                                     'value' => $model->photo_aadhaar_front != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_aadhaar_front") . '" class="lozad" title="" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_aadhaar_front") . '" data-src="' . $model->getImageUrl("photo_aadhaar_front") . '" class="lozad" title="" style="cursor : pointer"/> 
                                   </span>' : '',
                                 ],
                             ],
@@ -86,7 +86,7 @@ use common\models\User;
                                     'visible' => ($model->photo_aadhaar_back != NULL),
                                     'format' => 'raw',
                                     'value' => $model->photo_aadhaar_back != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_aadhaar_back") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_aadhaar_back") . '" data-src="' . $model->getImageUrl("photo_aadhaar_back") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                 ],
                             ],
@@ -102,7 +102,7 @@ use common\models\User;
                                     'visible' => ($model->photo_pan != NULL),
                                     'format' => 'raw',
                                     'value' => $model->photo_pan != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_pan") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_pan") . '" data-src="' . $model->getImageUrl("photo_pan") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                 ],
                             ],
@@ -239,7 +239,7 @@ use common\models\User;
                                         'visible' => ($model->photo_letter_of_appointment != NULL),
                                         'format' => 'raw',
                                         'value' => $model->photo_letter_of_appointment != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_letter_of_appointment") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_letter_of_appointment") . '" data-src="' . $model->getImageUrl("photo_letter_of_appointment") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                     ],
                                 ],
@@ -256,7 +256,7 @@ use common\models\User;
                                         'visible' => ($model->photo_service_agreement != NULL),
                                         'format' => 'raw',
                                         'value' => $model->photo_service_agreement != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_service_agreement") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_service_agreement") . '" data-src="' . $model->getImageUrl("photo_service_agreement") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                     ],
                                 ],
@@ -272,7 +272,7 @@ use common\models\User;
                                         'visible' => ($model->photo_letter_of_last_posting_order != NULL),
                                         'format' => 'raw',
                                         'value' => $model->photo_letter_of_last_posting_order != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_letter_of_last_posting_order") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_letter_of_last_posting_order") . '" data-src="' . $model->getImageUrl("photo_letter_of_last_posting_order") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                     ],
                                 ],
@@ -318,7 +318,7 @@ use common\models\User;
                                         'visible' => ($model->photo_bank_passbook != NULL),
                                         'format' => 'raw',
                                         'value' => $model->photo_bank_passbook != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="" data-src="' . $model->getImageUrl("photo_bank_passbook") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
+                                  <img width="220px" src="' . $model->getImageUrl("photo_bank_passbook") . '" data-src="' . $model->getImageUrl("photo_bank_passbook") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
                                   </span>' : '',
                                     ],
                                 ],
