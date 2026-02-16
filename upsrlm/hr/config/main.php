@@ -71,14 +71,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-//        'urlManager' => [
-//            'enablePrettyUrl' => true,
-//            'showScriptName' => false,
-//            'rules' => [
-//                '/' => 'dashboard',
-//                'changepassword' => 'site/changepassword',
-//            ],
-//        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '/' => 'dashboard',
+                'changepassword' => 'site/changepassword',
+                'getimage/<path:.*>' => 'site/getimage',
+            ],
+        ],
     ],
     'params' => $params,
 ];

@@ -47,8 +47,7 @@ use common\models\User;
                                     'visible' => ($model->photo_profile != NULL),
                                     'format' => 'raw',
                                     'value' => $model->photo_profile != NULL ? '<span class="profile-picture">
-                                  <img width="220px" src="' . $model->getImageUrl("photo_profile") . '" data-src="' . $model->getImageUrl("photo_profile") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> 
-                                  </span>' : '',
+                                  <img width="220px" src="' . $model->getImageUrl("photo_profile") . '" data-src="' . $model->getImageUrl("photo_profile") . '" class="lozad" title="Profile Photo" style="cursor : pointer"/> \n                                  </span>' : '',
                                 ],
                             ],
                         ])

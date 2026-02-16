@@ -289,4 +289,39 @@ class SiteController extends Controller {
                     'model' => $model
         ]);
     }
+
+    /**
+     * Serve user profile images
+     * URL pattern: /getimage/user_profile/{user_id}/{filename}
+     */
+    public function actionGetimage($path) {
+        // Parse the path: /user_profile/user_id/filename
+        $parts = explode('/', trim($path, '/'));
+        
+        if (count($parts) < 3) {
+            throw new \yii\web\NotFoundHttpException('Invalid image path');
+        }
+        
+        $type = $parts[0]; // user_profile
+        $userId = $parts[1];
+        $filename = $parts[2];
+        
+        // Build the file path
+        $basePath = \Yii::$app->params['datapath'] ?? '/var/www/html/data/';
+        $filePath = $basePath . $type . '/' . $userId . '/' . $filename;
+        
+        if (!file_exists($filePath)) {
+            // Return a placeholder image instead of 404
+            header('Content-Type: image/svg+xml');
+            echo '<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220"><rect fill="#ddd" width="220" height="220"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" font-family="Arial" font-size="14" fill="#666">No Image</text></svg>';
+            \Yii::$app->end();
+            return;
+        }
+        
+        // Determine MIME type
+        $mimeType = mime_content_type($filePath);
+        
+        // Send the file
+        return \Yii::$app->response->sendFile($filePath, null, ['inline' => true, 'mimeType' => $mimeType]);
+    }
 }
