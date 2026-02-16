@@ -1,0 +1,48 @@
+<?php
+
+namespace bc\models\master;
+
+use Yii;
+
+/**
+ * This is the model class for table "master_division".
+ *
+ * @property int $id
+ * @property int $division_code
+ * @property string $division_name
+ * @property string $division_headquarter
+ */
+class MasterDivision extends \bc\modules\selection\models\BcactiveRecord {
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName() {
+        return 'master_division';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules() {
+        return [
+            [['division_code', 'division_name', 'division_headquarter'], 'required'],
+            [['division_code'], 'integer'],
+            [['division_name'], 'string', 'max' => 150],
+            [['division_headquarter'], 'string', 'max' => 20],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels() {
+        return [
+            'id' => 'ID',
+            'division_code' => 'Division Code',
+            'division_name' => 'Division Name',
+            'division_headquarter' => 'Division Headquarter',
+        ];
+    }
+
+}

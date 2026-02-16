@@ -1,0 +1,188 @@
+.devider-line{
+    margin: 0 5px;
+    border-left:1px solid #000;
+}
+#topnav > .home-topbar{
+    background: #dfdfdf;
+    background-image: url("../images/illustration-pattern.png");
+    background-position: bottom;
+    padding: 0 30px;
+}
+
+.top-heading{
+    text-align: center;
+}
+
+.top-heading h1{
+    color: #ff8a00;
+    font-size: 28px;
+}
+.home-nav-bar{
+    background: #464646;
+}
+#topnav .home-nav-bar .navigation-menu > li > a{
+    color: #fff;
+}
+.home-nav-bar .navigation-menu{
+    text-align: right;
+}
+
+#topnav .home-nav-bar .has-submenu.active a i,  #topnav .home-nav-bar .has-submenu.hover a i{
+    color: #fff
+}
+.home-nav-bar .navigation-menu > li a{
+    color: #fff;
+}
+
+.home-nav-bar .navigation-menu > li:hover, .home-nav-bar .navigation-menu > li.active{
+    background: #ff8a00;
+}
+.home-nav-bar .has-submenu.active > li a {
+    color: #fff;
+}
+.nav-bar-small{
+    background:#464646;
+}
+.hm-blk-rt{    
+    background-color: white;
+    min-height: 110px;
+    color: #000000;
+}
+
+.hm-blk-rt h2{
+    /*    color: white;*/
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26px;
+    margin: 5px;
+}
+
+.hm-blk-rt p{
+    /*    color: #ffffff;*/
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 21px;
+    margin-top: 10px;
+    text-align: justify;
+    margin: 0pc;
+    padding: 5px;
+}
+
+.hm-intro-blk{
+    background-color: #f5f5f5bf;
+    min-height: 270px;
+    padding: 10px;
+}
+
+.hm-intro-blk h2{
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.hm-intro-blk p{
+    color: #000;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-top: 10px;
+    text-align: justify;
+    margin: 0;
+}
+.single-item-cd-a .slick-prev, .single-item-cd-a .slick-next{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #fff;
+    top: 50%;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.55);
+}
+
+.single-item-cd-a .slick-next{
+    right: -42px
+}
+.single-item-cd-a .slick-prev{
+    left: -42px
+}
+.single-item-cd-a .slick-prev:before, .single-item-cd-a .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*--------------- Small Slider----------------*/
+.single-item-cd-glr .slick-prev, .single-item-cd-glr .slick-next{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #fff;
+    top: 52%;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.55);
+    z-index: 1;
+    opacity: .3;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.single-item-cd-glr .slick-next{
+    right: 15px;
+}
+.single-item-cd-glr .slick-prev{
+    left: 15px;
+}
+.single-item-cd-glr .slick-prev:before, .single-item-cd-glr .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.single-item-cd-glr:hover .slick-prev, .single-item-cd-glr:hover .slick-next{
+    opacity: 1;
+}
+
+.breadcrumb {
+
+    margin-bottom: 5px;
+    padding-top: 5px;
+
+
+}
+
+@media (min-width: 992px){
+/*    .wrapper{
+        padding-top: 200px;
+    }*/
+    #home{
+        background-image: url("../images/background.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    #topnav .home-nav-bar .navigation-menu > li:first-of-type > a {
+        padding-left: 10px;
+    }
+    #topnav .home-nav-bar .navigation-menu > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+.fade:not(.show) {
+    opacity: 0;
+}

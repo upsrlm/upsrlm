@@ -1,0 +1,113 @@
+# yii console commands
+/yii
+/yii_test
+/yii_test.bat
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# vagrant runtime
+/.vagrant
+
+/composer.lock
+
+# ignore generated files
+/frontend/web/index.php
+/frontend/web/index-test.php
+/frontend/web/robots.txt
+/frontend/runtime/
+/frontend/web/assets/
+
+/backend/web/index.php
+/backend/web/index-test.php
+/backend/web/robots.txt
+/backend/runtime/
+/backend/web/assets/
+
+/api/web/index.php
+/api/web/robots.txt
+/api/runtime/
+/api/web/assets/
+
+
+/dummy/runtime/
+/dummy/web/assets/
+
+/support/web/index.php
+/support/web/robots.txt
+/support/runtime/
+/support/web/assets/
+
+/app/web/index.php
+/app/web/robots.txt
+/app/runtime/
+/app/web/assets/
+
+/dashboard/web/index.php
+/dashboard/web/robots.txt
+/dashboard/runtime/
+/dashboard/web/assets/
+
+/bc/runtime/
+/bc/web/assets/
+/cbo/runtime/
+/cbo/web/assets/
+/hr/runtime/
+/hr/web/assets/
+/frontend/web/uploads/
+/sakhi/runtime/
+/sakhi/web/assets/
+/frontend/web/api_check/
+/wada/runtime/
+/wada/web/assets/
+/main-local.php
+/rishtasupport/web/assets/
+/rishtasupport/runtime/
+/saheli/runtime/
+/saheli/web/assets/
+/callcenter/runtime/
+/callcenter/web/assets/
+/apifile/runtime/
+/apifile/web/assets/
+/file/runtime/
+/file/web/assets/
+/dbtcallcenter/runtime/
+/dbtcallcenter/web/assets/
+/ultra-poor/web/assets/
+/ultra-poor/runtime/
+/sumup/runtime/
+/sumup/tests/
+/sumup/web/assets/
+/mopup/runtime/
+/mopup/web/assets/
+/bccallcenter/tests/
+/bccallcenter/runtime/
+/bccallcenter/web/assets/
+/bcsakhi/runtime/
+/bcsakhi/web/assets/
+/bcsakhi/tests/

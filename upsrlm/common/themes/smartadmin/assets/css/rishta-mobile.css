@@ -1,0 +1,94 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22-Oct-2021, 9:58:53 AM
+    Author     : vikas
+*/
+
+.panel .panel-container .panel-content {
+    padding: 0.5rem;
+}
+
+.page-content {
+    padding: 0.5rem;
+}
+.table-bordered th, .table-bordered td {
+    padding: 0.3rem;
+}
+.card {
+    margin-bottom: 5px !important;
+}
+label {
+    font-size: 1.000rem !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+}
+.bold_lable{
+    font-size: 1.000rem !important;
+    font-weight: bold !important;
+}
+
+
+@media(max-width:992px){
+
+    .table.sakhi-tablecstm tbody tr td{
+
+        vertical-align: middle;
+        text-align: left;
+       
+    }
+    
+    /* .table.sakhi-tablecstm tbody tr:last-child{
+    
+        border-bottom: 1px solid #e9e9e9 !important;
+    
+    } */
+    .table.sakhi-tablecstm{
+    
+        white-space: nowrap;
+    }
+    .table.sakhi-tablecstm  th{
+    
+        padding: 8px 11px;
+        text-align: left;
+    }
+
+    .margin-set{
+
+        margin-top:-20px;
+    }
+    .panel-content_cstm .summary{
+
+        padding-left: 0.5rem !important;
+        padding-top: 0.5rem !important;
+    }
+
+    .panel-content_cstm-2 .summary{
+        padding-bottom: 9px;
+    padding-left: 10px;
+    }
+    .panel-content_cstm.card-body{
+
+        padding: 9px !important;
+    }
+
+    .label-set .form-group > label{
+
+        font-size: 1.000rem !important;
+        font-weight: bold !important;
+    }
+}
+
+
+/* ::-webkit-scrollbar{
+    height: 6px;
+    background: rgba(128, 128, 128, 0.596);
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:horizontal{
+    background: #63e9db;
+    border-radius: 10px;
+} */

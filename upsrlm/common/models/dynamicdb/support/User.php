@@ -1,0 +1,304 @@
+<?php
+
+namespace common\models\dynamicdb\support;
+
+use Yii;
+use yii\base\NotSupportedException;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
+
+/**
+ * User model
+ *
+ * @property integer $id
+ * @property string $name
+ * @property string $username
+ * @property string $password_hash
+ * @property string $password_reset_token
+ * @property string $verification_token
+ * @property string $email
+ * @property string $auth_key
+ * @property string $mobile_no
+ * @property integer $role
+ * @property integer $status
+ * @property integer $profile_status
+ * @property string $upd
+ * @property string $password_digest
+ * @property integer $dummy_column
+ * @property integer $created_by
+ * @property integer $updated_by
+ * @property integer $created_at
+ * @property integer $updated_at
+ * @property string $password 
+ */
+class User extends SupportDetailactiveRecord implements IdentityInterface {
+
+    const STATUS_DELETED = 0;
+    const STATUS_INACTIVE = 9;
+    const STATUS_ACTIVE = 10;
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName() {
+        return '{{%user}}';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors() {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules() {
+        return [
+            ['username', 'trim'],
+            ['username', 'unique', 'message' => 'This username has already been taken.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['email', 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'message' => 'This email address has already been taken.'],
+            ['email', 'string', 'max' => 255],
+            ['mobile_no', 'trim'],
+            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            ['upd', 'safe'],
+            ['profile_status', 'safe'],
+            ['profile_status', 'default', 'value' => 1],
+            ['auth_key', 'default', 'value' => ''],
+            [['login_by_otp', 'otp_value', 'otp_sendtime'], 'safe'],
+            ['login_by_otp', 'default', 'value' => 1],
+            ['dummy_column', 'default', 'value' => 0],
+            ['flags', 'default', 'value' => 0],
+            ['cbo_app_version', 'safe'],
+            ['firebase_token', 'safe'],
+            ['cbo_app_id', 'safe'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function findIdentity($id) {
+        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+//    public static function findIdentityByAccessToken($token, $type = null) {
+//        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+//    }
+
+    /**
+     * Finds user by username
+     *
+     * @param string $username
+     * @return static|null
+     */
+    public static function findByUsername($username) {
+        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * Finds user by password reset token
+     *
+     * @param string $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token) {
+        if (!static::isPasswordResetTokenValid($token)) {
+            return null;
+        }
+
+        return static::findOne([
+                    'password_reset_token' => $token,
+                    'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+    /**
+     * Finds user by verification email token
+     *
+     * @param string $token verify email token
+     * @return static|null
+     */
+    public static function findByVerificationToken($token) {
+        return static::findOne([
+                    'verification_token' => $token,
+                    'status' => self::STATUS_INACTIVE
+        ]);
+    }
+
+    /**
+     * Finds out if password reset token is valid
+     *
+     * @param string $token password reset token
+     * @return bool
+     */
+    public static function isPasswordResetTokenValid($token) {
+        if (empty($token)) {
+            return false;
+        }
+
+        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
+        return $timestamp + $expire >= time();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getId() {
+        return $this->getPrimaryKey();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAuthKey() {
+        return $this->auth_key;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function validateAuthKey($authKey) {
+        return $this->getAuthKey() === $authKey;
+    }
+
+    /**
+     * Validates password
+     *
+     * @param string $password password to validate
+     * @return bool if password provided is valid for current user
+     */
+    public function validatePassword($password) {
+        return Yii::$app->security->validatePassword($password, $this->password_hash);
+    }
+
+    /**
+     * Generates password hash from password and sets it to the model
+     *
+     * @param string $password
+     */
+    public function setPassword($password) {
+        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+    }
+
+    /**
+     * Generates "remember me" authentication key
+     */
+    public function generateAuthKey() {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    /**
+     * Generates new password reset token
+     */
+    public function generatePasswordResetToken() {
+        $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
+    }
+
+    /**
+     * Generates new token for email verification
+     */
+    public function generateEmailVerificationToken() {
+        $this->verification_token = Yii::$app->security->generateRandomString() . '_' . time();
+    }
+
+    /**
+     * Removes password reset token
+     */
+    public function removePasswordResetToken() {
+        $this->password_reset_token = null;
+    }
+
+    public function generatePasswordDigest($password, $realm = 'api') {
+        return md5(implode(':', [$this->username, $realm, $password]));
+    }
+
+    public function getUrole() {
+        return $this->hasOne(master\MasterRole::className(), ['id' => 'role']);
+    }
+
+    public function getBlocks() {
+        return $this->hasMany(RelationUserBdoBlock::className(), ['user_id' => 'id'])->where(['relation_user_bdo_block.status' => 1]);
+    }
+
+    public function getBlockdis() {
+        return $this->hasOne(master\MasterBlock::className(), ['block_code' => 'block_code'])->via('blocks');
+    }
+
+    public function getDistricts() {
+        return $this->hasMany(RelationUserDistrict::className(), ['user_id' => 'id'])->where(['relation_user_district.status' => 1]);
+    }
+
+    public function getDivision() {
+        return $this->hasMany(RelationUserDivision::className(), ['user_id' => 'id'])->where(['relation_user_division.status' => 1]);
+    }
+
+    public function getGrampanchayat() {
+        return $this->hasMany(RelationUserGramPanchayat::className(), ['user_id' => 'id'])->where(['relation_user_gram_panchayat.status' => 1]);
+    }
+
+    public function getGpchilduser() {
+        return $this->hasMany(RelationUserGramPanchayat::className(), ['primary_user_id' => 'id'])->where(['relation_user_gram_panchayat.status' => 1])->select('user_id')->distinct('user_id');
+    }
+
+    public function getProfile() {
+        return $this->hasOne(UserProfile::className(), ['user_id' => 'id']);
+    }
+
+    public function getApplication() {
+        return $this->hasMany(WebApplicationRole::className(), ['role_id' => 'role']);
+    }
+
+    public function getLoginmethod() {
+        $login_by_otp_option = [
+            1 => 'Login By Password',
+            2 => 'Login By OTP',
+            3 => 'Login By Both (Password or OTP)',
+        ];
+        return isset($login_by_otp_option[$this->login_by_otp]) ? $login_by_otp_option[$this->login_by_otp] : '';
+    }
+
+    public function getProfilestatus() {
+        $class = '';
+        $txt = '';
+        if ($this->profile != NULL) {
+            if ($this->profile->is_profile_complete) {
+                $class = 'label-success';
+                $txt = 'Completed';
+            } else {
+                $class = 'label-info';
+                $txt = 'Incomplete';
+            }
+        } else {
+            $class = 'label-warning';
+            $txt = 'Not Initiated';
+        }
+        $string = '<span class="block label ' . $class . '">';
+        $string .= $txt;
+        $string .= '</span>';
+        return $string;
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null) {
+        $user = self::findOne(['id' => $token->getClaim('uid')]);
+        if ($user != null) {
+            return $user;
+        }
+        return null;
+    }
+
+}

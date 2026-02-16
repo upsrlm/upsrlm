@@ -1,0 +1,258 @@
+<?php
+
+namespace common\models\dynamicdb\cbo_detail;
+
+use Yii;
+
+/**
+ * This is the model class for table "cbo_vo".
+ *
+ * @property int $id
+ * @property int $state_code
+ * @property string $state_name
+ * @property int|null $division_code
+ * @property string|null $division_name
+ * @property int|null $district_code
+ * @property string|null $district_name
+ * @property int|null $block_code
+ * @property string|null $block_name
+ * @property int|null $gram_panchayat_code
+ * @property string|null $gram_panchayat_name
+ * @property string $name_of_vo
+ * @property string|null $nrlm_vo_code
+ * @property string|null $date_of_formation
+ * @property int $no_of_shg_connected
+ * @property string|null $bank_account_no_of_the_vo
+ * @property int|null $bank_id
+ * @property string|null $name_of_bank
+ * @property string|null $branch
+ * @property string|null $branch_code_or_ifsc
+ * @property string|null $date_of_opening_the_bank_account
+ * @property string|null $samuh_sakhi_name
+ * @property int|null $samuh_sakhi_age
+ * @property int|null $samuh_sakhi_cbo_shg_id
+ * @property string|null $samuh_sakhi_mobile_no
+ * @property int|null $samuh_sakhi_mobile_type
+ * @property int|null $samuh_sakhi_social_category
+ * @property int|null $samuh_sakhi_detail_by
+ * @property string|null $samuh_sakhi_detail_date
+ * @property int|null $cbo_clf_id
+ * @property int $edit_bmmu
+ * @property int $verify_vo_name_code_address
+ * @property int $verify_vo_formation_date_no_shg
+ * @property int $verify_vo_related_to_bank_account
+ * @property int $verify_vo_total_amount
+ * @property int $verify_vo_affiliated_shg_detail
+ * @property int $verify_vo_members_detail
+ * @property int $verify_vo_any_other_info
+ * @property int $verification_status
+ * @property int|null $verify_by
+ * @property string|null $verify_datetime
+ * @property int $urban_vo
+ * @property int $verification_status_samuh_sakhi
+ * @property int|null $verify_samuh_sakhi_detail_by
+ * @property string|null $verify_samuh_sakhi_detail_date
+ * @property int|null $created_by
+ * @property int|null $updated_by
+ * @property int|null $created_at
+ * @property int|null $updated_at
+ * @property int $dummy_column
+ * @property int $status
+ */
+class RishtaVo extends CboDetailactiveRecord {
+
+    const STATUS_SAVE = 1;
+    const STATUS_SUBMIT = 2;
+
+    public function behaviors() {
+        return [
+            [
+                'class' => \yii\behaviors\BlameableBehavior::className(),
+                'createdByAttribute' => 'created_by',
+                'updatedByAttribute' => 'updated_by',
+            ],
+            [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => function () {
+                    return time();
+                },
+            ],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName() {
+        return 'rishta_vo';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules() {
+        return [
+            [['division_code', 'district_code', 'block_code', 'gram_panchayat_code', 'no_of_shg_connected', 'bank_id', 'created_by', 'updated_by', 'created_at', 'updated_at', 'status', 'cbo_clf_id'], 'integer'],
+            [['name_of_vo', 'no_of_shg_connected'], 'required'],
+            [['date_of_formation', 'date_of_opening_the_bank_account', 'verify_datetime'], 'safe'],
+            [['division_name', 'name_of_vo', 'name_of_bank', 'branch'], 'string', 'max' => 150],
+            [['district_name', 'block_name'], 'string', 'max' => 30],
+            [['gram_panchayat_name'], 'string', 'max' => 125],
+            [['bank_account_no_of_the_vo', 'branch_code_or_ifsc'], 'string', 'max' => 25],
+            [['nrlm_vo_code'], 'trim'],
+            [['name_of_vo'], 'trim'],
+            [['no_of_shg_connected'], 'trim'],
+            [['date_of_formation'], 'trim'],
+            [['date_of_opening_the_bank_account'], 'trim'],
+            [['bank_account_no_of_the_vo'], 'trim'],
+            [['branch_code_or_ifsc'], 'trim'],
+            [['branch'], 'trim'],
+            ['dummy_column', 'default', 'value' => 0],
+            [['edit_bmmu'], 'safe'],
+            [['verify_vo_name_code_address', 'verify_vo_formation_date_no_shg', 'verify_vo_related_to_bank_account', 'verify_vo_total_amount', 'verify_vo_affiliated_shg_detail', 'verify_vo_members_detail', 'verify_vo_any_other_info', 'verification_status'], 'integer'],
+            [['urban_vo'], 'integer'],
+            ['urban_vo', 'default', 'value' => 0],
+            [['samuh_sakhi_name'], 'trim'],
+            [['samuh_sakhi_name'], 'default', 'value' => NULL],
+            [['samuh_sakhi_age'], 'trim'],
+            [['samuh_sakhi_age', 'samuh_sakhi_cbo_shg_id', 'samuh_sakhi_mobile_type', 'samuh_sakhi_social_category', 'samuh_sakhi_detail_by'], 'integer'],
+            [['samuh_sakhi_detail_date'], 'safe'],
+            [['samuh_sakhi_name'], 'string', 'max' => 255],
+            [['samuh_sakhi_mobile_no'], 'string', 'max' => 15],
+            [['verification_status_samuh_sakhi', 'verify_samuh_sakhi_detail_by'], 'integer'],
+            [['verify_samuh_sakhi_detail_date'], 'safe'],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels() {
+        return [
+            'id' => 'UPSRLM VO ID',
+            'division_code' => 'Division Code',
+            'division_name' => 'Division Name',
+            'district_code' => 'District Code',
+            'district_name' => 'District Name',
+            'block_code' => 'Block Code',
+            'block_name' => 'Block Name',
+            'gram_panchayat_code' => 'Gram Panchayat Code',
+            'gram_panchayat_name' => 'Gram Panchayat Name',
+            'name_of_vo' => 'Name Of Vo',
+            'nrlm_vo_code' => 'NRLM VO code',
+            'date_of_formation' => 'Date Of Formation',
+            'no_of_shg_connected' => 'No Of Shg Connected',
+            'bank_account_no_of_the_vo' => 'Bank Account No Of The Vo',
+            'name_of_bank' => 'Name Of Bank',
+            'branch' => 'Branch',
+            'branch_code_or_ifsc' => 'Branch Code Or Ifsc',
+            'date_of_opening_the_bank_account' => 'Date Of Opening The Bank Account',
+            'samuh_sakhi_name' => 'समूह सखी का नाम',
+            'samuh_sakhi_age' => 'आयु',
+            'samuh_sakhi_cbo_shg_id' => 'जिस समूह की सदस्या हैं ',
+            'samuh_sakhi_mobile_no' => 'मोबाइल नम्बर,',
+            'samuh_sakhi_mobile_type' => 'मोबाइल फ़ोन का प्रकार ',
+            'samuh_sakhi_social_category' => 'सामाजिक श्रेणी',
+            'samuh_sakhi_detail_by' => 'Samuh Sakhi Detail By',
+            'samuh_sakhi_detail_date' => 'Samuh Sakhi Detail Date',
+            'verify_vo_name_code_address' => 'VO के नाम, कोड, स्थान व पता ',
+            'verify_vo_formation_date_no_shg' => 'VO गठन की तिथि एवं सम्बद्ध स्वयं सहायता समूह (एसएचजी) की संख्या ',
+            'verify_vo_related_to_bank_account' => 'बैंक अकाउंट से जुड़े सभी विवरणा',
+            'verify_vo_total_amount' => 'VO द्वारा योजना-वार अबतक प्राप्त कुल धनराशि एवं अद्यतन बैंक बैलेन्स',
+            'verify_vo_affiliated_shg_detail' => 'VO के साथ सम्बद्ध सभी SHG के विवरण',
+            'verify_vo_members_detail' => 'VO के सभी सदस्यों के नाम एवं पूर्ण विवरण',
+            'verify_vo_any_other_info' => 'कोई अन्य सूचना ',
+            'verification_status' => 'Verification Status',
+            'verify_by' => 'Verify By',
+            'verify_datetime' => 'Verify Datetime',
+            'urban_shg' => 'GP Convert Urban',
+            'verification_status_samuh_sakhi' => 'Verification Status Samuh Sakhi',
+            'verify_samuh_sakhi_detail_by' => 'Verify Samuh Sakhi Detail By',
+            'verify_samuh_sakhi_detail_date' => 'Verify Samuh Sakhi Detail Date',
+            'created_by' => 'Created By',
+            'updated_by' => 'Updated By',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'status' => 'Status',
+        ];
+    }
+
+    public function getCbovo() {
+        return $this->hasOne(\cbo\models\CboVo::className(), ['id' => 'id']);
+    }
+
+    public function getClf() {
+        return $this->hasOne(RishtaClf::className(), ['id' => 'cbo_clf_id']);
+    }
+
+    public function getShg() {
+        return $this->hasMany(RishtaShg::className(), ['cbo_vo_id' => 'id']);
+    }
+
+    public function getVerificationstatus() {
+        $array = [1 => 'Verified', 2 => 'Unverified'];
+        return isset($array[$this->verification_status]) ? $array[$this->verification_status] : '';
+    }
+
+    public function getVerify1status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_name_code_address]) ? $array[$this->verify_vo_name_code_address] : '';
+    }
+
+    public function getVerify2status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_formation_date_no_shg]) ? $array[$this->verify_vo_formation_date_no_shg] : '';
+    }
+
+    public function getVerify3status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_related_to_bank_account]) ? $array[$this->verify_vo_related_to_bank_account] : '';
+    }
+
+    public function getVerify4status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_total_amount]) ? $array[$this->verify_vo_total_amount] : '';
+    }
+
+    public function getVerify5status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_affiliated_shg_detail]) ? $array[$this->verify_vo_affiliated_shg_detail] : '';
+    }
+
+    public function getVerify6status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_members_detail]) ? $array[$this->verify_vo_members_detail] : '';
+    }
+
+    public function getVerify7status() {
+        $array = [1 => 'हाँ', 2 => 'नहीं', 3 => 'अपूर्ण'];
+        return isset($array[$this->verify_vo_any_other_info]) ? $array[$this->verify_vo_any_other_info] : '';
+    }
+
+    public function getEntryby() {
+        return $this->hasOne(User::className(), ['id' => 'created_by']);
+    }
+
+    public function getVerifyby() {
+        return $this->hasOne(User::className(), ['id' => 'verify_by']);
+    }
+
+    public function getSamuhsakhishg() {
+        return $this->hasOne(RishtaShg::className(), ['id' => 'samuh_sakhi_cbo_shg_id']);
+    }
+
+    public function getSocialcategory() {
+        return $this->hasOne(master\CboMasterCast::className(), ['id' => 'samuh_sakhi_social_category']);
+    }
+
+    public function getMobiletype() {
+        return $this->hasOne(master\CboMasterPhoneType::className(), ['id' => 'samuh_sakhi_mobile_type']);
+    }
+
+    public function getSamuhsakirole() {
+        return $this->hasMany(User::className(), ['username' => 'samuh_sakhi_mobile_no'])->select(['username', 'role'])->where(['!=', 'user.role', '100'])->count();
+    }
+
+}

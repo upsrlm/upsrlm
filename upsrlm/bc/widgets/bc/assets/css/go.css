@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+ 
+}
+
+.go-table tbody td{
+
+  border-right: 1px solid #dee2e6 !important;
+}
+.gotable-head{
+
+  background-color: #a4c639 !important;
+  color: #fff;
+}
+.gotable-head th{
+
+  border-right: 1px solid #dee2e6 !important;
+}
+.coloRed{
+
+  color: #c9211e;
+}
+
+@media (max-width:1200px) {
+  .setwitdth{
+
+    width: 20% !important;
+    white-space: nowrap;
+  }
+}

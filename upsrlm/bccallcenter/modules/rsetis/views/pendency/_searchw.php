@@ -1,0 +1,107 @@
+<?php
+
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
+use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
+use \yii\widgets\Pjax;
+use kartik\widgets\DepDrop;
+use kartik\widgets\Select2;
+use common\models\base\GenralModel;
+use common\models\User;
+use common\models\master\MasterRole;
+?>
+<div class="srlm-search">
+    <?php
+    $form = ActiveForm::begin([
+                'layout' => 'inline',
+                'options' => [
+                    'class' => 'form-inline',
+                    'data-pjax' => true,
+                    'id' => 'Searchform'
+                ],
+                'method' => 'get',
+    ]);
+    ?>
+
+    <?php
+    if (isset(Yii::$app->user->identity) and!in_array(Yii::$app->user->identity->role, [MasterRole::ROLE_BANK_DISTRICT_UNIT, MasterRole::ROLE_BANK_FI_PARTNER_DISTRICT_NODAL,MasterRole::ROLE_CORPORATE_BCS])) {
+        echo $form->field($model, 'master_partner_bank_id')->widget(Select2::classname(), [
+            'data' => $model->bank_option,
+            'options' => ['placeholder' => 'Select Parner Bank', 'style' => 'width:200px'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ])->label('Partner Bank');
+    }
+    ?>
+    <?php
+    echo $form->field($model, 'district_code')->widget(Select2::classname(), [
+        'data' => $model->district_option,
+        'options' => ['placeholder' => 'Select District', 'style' => 'width:200px'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ])->label('District');
+    ?>
+
+
+    <?= Html::submitButton('Search', ['class' => 'btn  btn-primary', 'id' => 'searchbtn', 'name' => 'search', 'value' => 'search', 'style' => 'margin-left:10px']) ?>
+    <?php if (in_array(Yii::$app->user->identity->role, [MasterRole::ROLE_ADMIN, MasterRole::ROLE_SUPER_ADMIN, MasterRole::ROLE_SPM_FI_MF])) { ?>
+        <?php  Html::button('<i class="fal fa-download"></i> Download CSV', ['class' => 'btn btn-primary ', 'style' => 'margin-left:10px;', 'id' => 'download', 'name' => 'download', 'value' => 'download', 'onclick' => "exportTableToExcel('report', 'members-data')"]) ?>
+    <?php } ?>
+<!--<button onclick="exportTableToExcel('report')">Export Table Data To Excel File</button>-->
+    <?php ActiveForm::end(); ?>
+</div>
+<?php
+$js = <<<JS
+$('#reloads').click(function() {
+    location.reload();
+});        
+JS;
+$this->registerJs($js);
+$js = <<<JS
+ 
+$('#reloads').click(function() {
+    location.reload();
+});        
+JS;
+$this->registerJs($js);
+
+$css = <<<cs
+ .select2-selection__rendered {
+    width: 250px !important;
+}
+cs;
+$this->registerCss($css);
+?>
+
+
+<?php
+$script = <<< JS
+      
+   function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    filename = filename?filename+'.xls':'excel_data.xls';
+    downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        downloadLink.download = filename;
+        downloadLink.click();
+    }
+}
+JS;
+$this->registerJs($script);
+?>

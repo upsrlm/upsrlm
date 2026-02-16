@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- <link rel="stylesheet" href="../themes/fiori/assets/css/base.min.css"> -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>UPSRLM : Login</title>
+    
+<link href="/assets/6bafb2c7/css/bootstrap.css" rel="stylesheet">
+<link href="/assets/c4280754/css/main.5fb56474af9319a1be42.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
+<link href="/assets/c4280754/css/owl.css" rel="stylesheet">
+<link href="/assets/c4280754/css/custom-2.css" rel="stylesheet">
+<link href="/assets/c4280754/css/upsrlm.css" rel="stylesheet"></head>
+
+<body>
+        
+    <div class="app-container app-theme-white">
+
+        <div class="header_primary">
+    <div class="container-flude">
+        <div class="row">
+            <div class="col-sm-2 col-12">
+                <div class="header_primary_logo">
+                    <a href="/"><img src="/assets/c4280754/images/logo.png" class="img-fluid" alt=""> </a>
+                </div>
+            </div>
+            <div class="col-sm-8 col-12">
+                <div class="header_primary_logo_text">
+                    <h4>UTTAR PRADESH STATE RURAL LIVELIHOOD MISSION</h4>
+                    <h6>Department of Rural Development</h6>
+                    <p>Government Of Uttar Pradesh</p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-2 col-12">
+                <div class="right_nav">
+                    <a href="/"> <img src="/assets/c4280754/images/logo_up.png" class="img-fluid" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="app-container custom-cont app-theme-white">
+                  
+                    <div class="app-header header-shadow bg-plum-plate header-text-light">
+
+                        <div class="app-header__mobile-menu">
+                            <div>
+                                <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav" id="mobile-toggle">
+                                    <span class="hamburger-box">
+                                        <span class="hamburger-inner"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                       
+                        <div class="mobiele-ne">
+                            <ul class="horizontal-nav-menu">
+                                <li>
+                                    <a href="/" class="">
+
+                                        <span>Home</span>
+
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a href="/page/timeline" class="">
+
+                                        <span>Timeline</span>
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="/page/methodology" class="">
+
+                                        <span>Theory of Change</span>
+
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a href="/page/technology" class="">
+
+                                        <span>Technology</span>
+
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a href="/page/go" class="">
+
+                                        <span>Government Orders</span>
+
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <a href="/page/contact" class="">
+
+                                        <span>Contact Us</span>
+
+                                    </a>
+
+                                </li>
+                                                            </ul>
+                        </div>
+
+                        <div class="app-header-right">
+
+                        </div>
+                        <div class="app-header__menu">
+                            <span>
+                                <button type="button"
+                                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                    <span class="btn-icon-wrapper">
+                                        <i class="fa fa-ellipsis-v fa-w-6"></i>
+                                    </span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- <section class="home_banner"></section>-->
+        
+        
+
+
+        <div class="">
+            <div class="site-login">
+    <h1>Login</h1>
+
+    <p>Please fill out the following fields to login:</p>
+
+    <div class="row">
+        <div class="col-lg-5">
+            <form id="login-form" action="/site/login" method="post">
+                <div class="form-group field-loginform-username">
+<label class="control-label" for="loginform-username">Username</label>
+<input type="text" id="loginform-username" class="form-control" name="LoginForm[username]" autofocus>
+
+<p class="help-block help-block-error"></p>
+</div>
+                <div class="form-group field-loginform-password">
+<label class="control-label" for="loginform-password">Password</label>
+<input type="password" id="loginform-password" class="form-control" name="LoginForm[password]" value="">
+
+<p class="help-block help-block-error"></p>
+</div>
+                <div class="form-group field-loginform-rememberme">
+<div class="checkbox">
+<label for="loginform-rememberme">
+<input type="hidden" name="LoginForm[rememberMe]" value="0"><input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1" checked>
+Remember Me
+</label>
+<p class="help-block help-block-error"></p>
+
+</div>
+</div>
+                <div style="color:#999;margin:1em 0">
+                    If you forgot your password you can <a href="/site/request-password-reset">reset it</a>.
+                    <br>
+                    Need new verification email? <a href="/site/resend-verification-email">Resend</a>                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" name="login-button">Login</button>                </div>
+
+            </form>        </div>
+    </div>
+</div>
+        </div>
+
+
+        <!-- Main Footer -->
+
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="footer_primary">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="footer_left">
+                            <p>Facilitated by Department of Rural Development, </p>
+                            <p>Government of Uttar Pradesh</p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="footer_right">
+                            <p>Total Users:
+                                <strong>66,357</strong>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Total
+                                Pageviews:
+                                <strong>50,11,583</strong>
+                            </p>
+                            <p>Last Updated on : Sunday,
+                                <strong>Feb 27 2022 12:12 PM</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script src="/assets/bc5d81ce/jquery.js"></script>
+<script src="/assets/927ec3e/yii.js"></script>
+<script src="/assets/927ec3e/yii.validation.js"></script>
+<script src="/assets/927ec3e/yii.activeForm.js"></script>
+<script src="/assets/6bafb2c7/js/bootstrap.bundle.js"></script>
+<script src="/assets/c4280754/scripts/owl.carousel.min.js"></script>
+<script>jQuery(function ($) {
+jQuery('#login-form').yiiActiveForm([{"id":"loginform-rememberme","name":"rememberMe","container":".field-loginform-rememberme","input":"#loginform-rememberme","error":".help-block.help-block-error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.boolean(value, messages, {"trueValue":"1","falseValue":"0","message":"Remember Me must be either \u00221\u0022 or \u00220\u0022.","skipOnEmpty":1});}}], []);
+});</script>    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" crossorigin="anonymous"></script>
+     DataTables
+     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/datatables.net-bs4@1.10.19/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js" crossorigin="anonymous"></script>
+     <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js" crossorigin="anonymous"></script>-->
+
+
+    <script>
+    $("#works-carousel").owlCarousel({
+        items: 1,
+        center: true,
+        smartSpeed: 650
+    });
+    </script>
+    <!-- <script>
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        loop: true,
+        nav: true,
+        dots: false,
+        margin: 5,
+        responsive: {
+            320: {
+                items: 1
+            },
+
+            575: {
+                items: 1
+            },
+
+            767: {
+                items: 2
+            },
+
+            991: {
+                items: 3
+            },
+
+            1200: {
+                items: 6
+            }
+        }
+    });
+    </script> -->
+
+    <script>
+    $(document).ready(function() {
+
+        $('#mobile-toggle').click(function() {
+
+            $('.mobiele-ne').toggleClass('show');
+            $('.custom-cont').toggleClass('custom-cont-2');
+
+        })
+    })
+    </script>
+
+</body>
+
+</html>

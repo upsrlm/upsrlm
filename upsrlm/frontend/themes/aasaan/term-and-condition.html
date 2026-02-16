@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <title>Adminto - Responsive Admin Dashboard Template</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+      <meta content="Coderthemes" name="author" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <!-- App favicon -->
+      <link rel="shortcut icon" href="assets/images/favicon.ico">
+      <!--Morris Chart CSS -->
+      <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+      <!-- App css -->
+      <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+      <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+      <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+      <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+      <link href="assets/css/custom-a-l.css" rel="stylesheet" type="text/css" />
+      <script src="assets/js/modernizr.min.js"></script>
+   </head>
+   <body id="home">
+      <!-- Navigation Bar-->
+      <header id="topnav">
+         <div class="topbar-main al-topbar">
+            <div class="d-flex justify-content-around align-items-center">
+               <a href="index.html" class="p-2 logo">
+               <img src="assets/images/upg-sm-logo.png" alt="" height="26" class="logo-small">
+               <img src="assets/images/upg-sm-logo.png" alt="" height="100%" class="logo-large">
+               </a>
+               <!-- End Logo container-->
+               <div class="flex-grow-1 top-heading">
+                  <h1>नगर विकास विभाग, उत्तर प्रदेश शासन</h1>
+                  <span>नागरिक सहभागिता सुनिश्चित करने के लिए CSOs से सम्बद्धता</span>
+               </div>
+               <div class="flex-grow-1 top-heading text-right">
+                  <h1>स्वच्छ भारत मिशन - शहरी</h1>
+               </div>
+               <div class="p-2 right-logo">
+                  <img src="assets/images/sbm-sm-logo.png" />
+               </div>
+               <div class="clearfix"></div>
+            </div>
+            <!-- end container -->
+         </div>
+         <!-- end topbar-main -->
+         <div class="nav-container d-flex justify-content-around align-items-center">
+            <div class="navbar-custom al-nav-bar flex-grow-1">
+               <div id="navigation">
+                  <!-- Navigation Menu-->
+                  <ul class="navigation-menu">
+                     <li class="active">
+                        <a href="#" style="padding-left: 10px;"><i class="mdi mdi-home"></i> <span> Home </span> </a>
+                     </li>
+                     <li class="">
+                        <a href="#"><i class="mdi mdi-earth"></i><span> About </span> </a>
+                     </li>
+                     <li class="">
+                        <a href="#"><i class="mdi mdi-information-outline"></i> <span> FAQ </span> </a>
+                     </li>
+                     <li class="">
+                        <a href="#"><i class="mdi mdi-email"></i><span> Contact </span> </a>
+                     </li>
+                  </ul>
+                  <!-- End navigation menu -->
+               </div>
+               <!-- end #navigation -->
+            </div>
+            <!-- end navbar-custom -->
+            <div class="menu-extras topbar-custom d-flex justify-content-around align-items-center">
+               <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                  <li class="menu-item">
+                     <!-- Mobile menu toggle-->
+                     <a class="navbar-toggle nav-link">
+                        <div class="lines">
+                           <span></span>
+                           <span></span>
+                           <span></span>
+                        </div>
+                     </a>
+                     <!-- End mobile menu toggle-->
+                  </li>
+               </ul>
+               <button type="button" class="btn btn-info btn-rounded waves-effect waves-light btn-sm"><i class="mdi mdi-help-circle"></i>    Help</button>
+               <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                  <li class="dropdown notification-list">
+                     <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="false" aria-expanded="false">
+                     <img src="assets/images/man.svg" alt="user" class="rounded-circle">
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="ti-user m-r-5"></i> Profile
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="ti-settings m-r-5"></i> Settings
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="ti-lock m-r-5"></i> Lock screen
+                        </a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="ti-power-off m-r-5"></i> Logout
+                        </a>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+            <!--<div class="u-wrapper">
+               <div class="use-emj">
+                   <i class="mdi mdi-home"></i>
+               </div>
+               </div>-->
+         </div>
+      </header>
+      <!-- End Navigation Bar-->
+      <div class="wrapper">
+      <div class="container-fluid">
+         <!-- Page-Title -->
+         <div class="row">
+            <div class="col-sm-12">
+               <h4 class="page-title">Registration of CSOs/ MCSOs and SSUs for using the portal</h4>
+            </div>
+         </div>
+         <!-- end page title end breadcrumb -->
+         <div class="row">
+            <div class="col-12">
+               <div class="card-box">
+                  <h4 class="m-t-0 header-title text-center">Part – 2 : Undertaking, menu of digital services & user fees</h4>
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="p-20">
+                           <div class="row">
+                              
+                                <div class="col-12 m-b-10">
+                                    <div class="tnc-content d-flex justify-content-around">
+                                        <p>
+                                                I, ……... authorized signatory for and on behalf of ………..  hereby agree to the terms and conditions applicable in usage of http://aasaan.website, a portal approved and agreed by the State Support Unit (SSU) with Department of Urban Development, Government of Uttar Pradesh. The portal as a digital platform would be used by all project associates; viz. the ULBs, Jal Sansthans, CSOs (including MCSOs & SSU) and Associated missions under the DoUD, GoUP (viz. Swachh Bharat Mission – Urban, AMRUT and SMCG/ SGRCA), for reporting project progresses and sharing affiliated information.
+                                                <br><br>
+                                                I understand and agree with the range of services to be provided by the portal and roles assigned with the SSU. Cost for the services would be borne by each of the CSOs (including MCSOs & SSU) as and wherever applicable. List of services and menu of user charge have been indicated herewith.
+                                                
+                                        </p>
+                                        <div class="devider-line"></div>
+                                        <p>
+                                                मैं __________, _________ के लिए अधिकृत हस्ताक्षरकर्ता, नीचे दिए गए शर्त एवं नियमों के प्रति, जो कि http://aasaan.website के उपयोग के लिए प्रयुक्त है, सहमति रखता/ रखती हूँ I यह पोर्टल नगर विकास विभाग, उत्तर प्रदेश सरकार के साथ स्टेट सपोर्ट यूनिट के अनुबंध अंतर्गत अनुमोदित है I ये वेब पोर्टल एक डिजिटल प्लेटफार्म के रूप में सभी परियोजना भागीदारों (सभी नगर निकाय, CSOs, MCSOs, सभी जल संस्थान, नगर विकास के अंतर्गत आये सभी सम्बंधित मिशन एवं SSU) के लिए आधिकारिक तौर पर उपलब्ध होगी ताकि परियोजनाओं के प्रगति की रिपोर्टिंग की जा सके एवं सम्बंधित सूचनाओं का आदान प्रदान किया जा सके, जैसा कि अनुबंधों में विनिर्दिष्ट है I
+                                                <br><br>
+                                                मैं इस पोर्टल के द्वारा प्रावधित डिजिटल सेवाओं के बारे में समझता/ समझती हूँ एवं SSU के तत्संबंधित भूमिकाओं से सहमत हूँ I इस पोर्टल के निर्माण एवं संचालन के लिए आनेवाले व्यय सभी CSOs (MCSO एवं SSU सम्मिलित) के द्वारा, जैसा भी उपयुक्त एवं सहमति पूर्ण हो, वहन किया जायेगा I डिजिटल सेवाओं की विस्तृत सूची एवं यूजर-चार्ज का विवरण निम्नवत है :
+                                                
+                                        </p>
+                                    </div>
+                                </div>
+                              <div class="col-12">
+                                 <h4 class="text-center">List of digital services/ प्रडप्रजटल सेिाओं की सूची</h4>
+                              </div>
+                              <div class="col-12">
+                                 <h4 class="tnc-txt-heading">1.	CSOs एवं MCSOs के लिए/ For CSOs & MCSOs</h4>
+                                 <div class="tnc-content d-flex">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          1.1.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	सभी तीन कार्यक्रमों, अमृत, स्वच्छ भारत मिशन - शहरी एवं नमामि गंगे, के तहत प्रगति रिपोर्टिंग/ Progress reporting for all 3 assignments _ AMRUT, Namami Gange & SBM-U </h4>
+                                       <p>	
+                                          Web based portal with dashboard reports which would distinctly indicate works initiated, accomplished, verified by SSU and ULBs and pendency thereof; to be reported to each of the (a) CSOs, (b) MCSOs, (c) SSUs, (d) ULBs, (e) districts and (f) Missions.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          1.2.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	सूचनाएं इकट्ठा करने के लिए मोबाइल ऍप का निर्माण एवं संचालन/ Mobile-based data collection App</h4>
+                                       <p>
+                                          For each of the 3 assignments, mobile apps with features of collecting (a) data, (b) photo, and (c) geo-location for CSO field workers to be able to capture field data at (i) pre-work/ benchmark & (ii) post-work/ accomplishment levels. Add feature of resubmission for cases rejected by ULBs.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          1.3.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>सभी प्रकार के कार्यों के लिए इलेक्ट्रॉनिक इनवॉइस ऑटो-सृजित करना/ Electronic invoicing (e-invoice) of CSO work	</h4>
+                                       <p>
+                                          Raising e-invoice on monthly basis as per GO dated Jan. 12th 2019 for (a) Each of the CSOs for (b) Each of the assignments and for (c) Each of the ULBs. The portal would maintain (a) auto-reminder and escalation system, as well as (b) e-mail alters.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          1.4.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>CSO कार्यकर्ताओं के लिए प्रशिक्षण एवं ट्रायल पोर्टल/ Training & trial portal</h4>
+                                       <p>
+                                          A portal dedicated for all CSO workers to train and conduct trial of the works that new workers are supposed to gain proficiency around.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                 <h4 class="tnc-txt-heading">2.	For ULBs/ नगर निकायों के लिए</h4>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          2.1.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO कार्य का दृष्टिगत एवं अनुश्रवण करने के लिए पोर्टल/ Portal for viewing & tracking CSO progress </h4>
+                                       <p>
+                                          Dashboard-based monitoring system to track progress of CSO works. Enable setting priority, if required; coordinate with SSU to realize so.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          2.2.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO कार्य का वेब-आधारित एवं भौतिकी सत्यापन/ Verification of CSO work	</h4>
+                                       <p>
+                                          Web-portal to view CSO progress for each accomplishment unit (household) and conduct physical/ web-based verification of CSO works; Indicate mistakes committed by CSOs, in case of a unit accomplishment rejected, for correction and resubmission.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          2.3.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO कार्य की भौतिकी सत्यापन के लिए मोबाइल ऍप/ Verification of CSO work	</h4>
+                                       <p>
+                                          Mobile app for ULB-based verification of CSO work. ULB workers would be enabled to conduct physical verification. Mobile-app based verification would ensure prompt and fair work processes.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          2.4.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	इलेक्ट्रॉनिक एन्वॉइसिंग एवं पेमेंट पोर्टल/  E-invoicing & payment portal	</h4>
+                                       <p>
+                                          Portal for e-payment is a facility for UPBs to track and access valid e-invoices for number of accomplishment that the ULB verifies for each CSOs and assignments. The portal would show payment history along remittances made and pendency, if any, for each of the CSOs corresponding specific assignments.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                 <h4 class="tnc-txt-heading">3.	For SSU(s)/ स्टेट सपोर्ट यूनिट के लिए</h4>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          3.1.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO कार्य के प्रगति रिपोर्ट; ट्रैकिंग एवं प्राथमिकता निर्धारण/ Progress reports on CSO works; </h4>
+                                       <p>
+                                          Enable Tracking and setting priorities; if any. More as an internal agent, access dashboard monitoring system to track progress of CSO work. Set ULB preference and priority, if required – coordinate with CSOs & ULBs to realize results.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          3.2.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO कार्य का भौतिकी सत्यापन/  Verification of CSO works	</h4>
+                                       <p>
+                                          View in dashboard CSO progress for each accomplishment unit (household) and conduct physical/ web-based verification thereof; Indicate mistakes committed by CSOs, in case of a unit accomplishment returned, for correction and resubmission.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          3.3.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO कार्य का भौतिकी सत्यापन/  Verification of CSO work	</h4>
+                                       <p>
+                                          Especially developed mobile app for field verification of CSO work, as directed by DoUD. Multiple teams would be enabled to conduct physical verification simultaneously. 
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                 <h4 class="tnc-txt-heading">4.	For DoUD, GoUP & 3 state Missions/ नगर विकास विभाग, एवं राज्य-स्तरीय मिशनों के लिए</h4>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          4.1.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	कार्यक्रमों का डैशबोर्ड अनुश्रवण, ट्रैकिंग एवं प्राथमिकता निर्धारण/ Dashboard monitoring of progresses – tracking & setting priorities	</h4>
+                                       <p>
+                                          Dashboard monitoring system on CSO work and reciprocal performances of implementing agencies (UPJN) and concerned ULBs. The dashboard would help DoUD/ Missions to set priorities to guide CSO operation.
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          4.2.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	CSO परियोजनाओं का ‘स्वास्थ्य संकेत’ : ULB के स्तर पर पेंडेंसी, वेरिफिकेशन एवं भुगतान की अद्यतन स्थिति पर विशेष डैशबोर्ड/ Dashboard on ‘project health’ around (a) ULB pendency, (b) SSU pendency, (c) status of SSU & ULB verification of CSO accomplishments, and of (d) Status of CSO payments processing</h4>
+                                       <p>
+                                          A special dynamic webpage indicating alerts on project health for the Missions and DoUD to make interventions at the levels of (a) ULBs, (b) Implementing agencies and (c) CSOs if & when required. Even a monthly glance at the page would help analytical decision making by the authorities. 
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                 <h4 class="tnc-txt-heading">5.	Future possibilities/ भविष्योन्मुखी सेवाएं	</h4>
+                                 <h4>As the SSU is directed to expand CSO-based services through technological means, the following may be considered in future - </h4>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          5.1.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	SMS / टेक्स्ट आधारित मैसेज सेवाओं का सम्मिलन/ integration of text/ SMS-based message services</h4>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          5.2.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	मिशन निदेशालय को नियमित रूप से कार्य प्रगति की अद्यतन स्थिति पर स्वसृजित ई-मेल, मैसेज/ व्हाट्सएप्प/ Regular update to Mission directors thru e-mail & whatsApp	 </h4>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          5.3.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	नागरिकों का फीडबैक एवं समुदाय-आधारित रिपोर्ट कार्ड का सृजन/ वितरण/ Citizens’ feedback and Community report  card</h4>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          5.4.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	टेक्नोलॉजी-आधारित शिकायतों का पंजीकरण एवं निपटारा/ Grievance reporting and redressal </h4>
+                                    </div>
+                                 </div>
+                                 <div class="tnc-content d-flex justify-content-around">
+                                    <div class="tnc-sr-no">
+                                       <h4>
+                                          5.5.
+                                       </h4>
+                                    </div>
+                                    <div class="tnc-text flex-grow-1 ">
+                                       <h4>	नगर विकास विभाग या किसी भी मिशन के द्वारा दिए गए कोई भी अन्य जिम्मेदारी से सम्बंधित डिजिटल सेवाएं (जैसे कि नगरीय कूड़ा प्रवंधन इत्यादि)/ Other roles assigned by any of the mission viz. Solid Waste Management etc.	</h4>
+                                       <p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                <h4 class="tnc-txt-heading">6.	User charges/ यूजर फी –</h4>
+                                <div class="tnc-content d-flex justify-content-around">
+                                    <p>
+                                        CSO के द्वारा प्रति गृहवार कार्य उपलब्धि, जिसे नगर निकाय के द्वारा सत्यापित कर के "सम्पूर्ण" घोषित की जा चुकी हो, एवं डैशबोर्ड में प्रदर्शित की जा रही हो, जैसे कि (a) गृह सीवर संयोजन, (b) गृह पेय जलापूर्ति संयोजन एवं (c) असम्पूर्ण व्यक्तिगत गृह शौचालय के प्रति इकाई के लिए निम्न लिखित यूजर फी/ user fee के दर से भुगतान की जाएगी I प्रति माह, हर यूजर (उपयोगकर्ता) CSO, MCSO या SSU नगर निकाय से अपने कार्य के भुगतान के पश्चात् आगामी 6 बैंक-दिवस के अंदर टेक्नोलॉजी एजेंसी को यूजर फीस का भुगतान करेगी I इस तरह किसी माह में टेक्नोलॉजी एजेंसी को यूजर फीस के भुगतान न होने की दशा में, सम्बंधित संस्था को ऑटो-जनरेटेड/ स्वसृजित इ-मेल के माध्यम से अलर्ट भेजी जाएगी I फिर भी भुगतान न होने से, डिजिटल सेवाओं को बंद करने से पहले SSU के द्वारा सुगमता लाने तथा समाधान प्राप्त करने के लिए कदम उठाया जायेगा I
+                                    </p>
+                                    <div class="devider-line"></div>
+                                    <p>
+                                        On pro accomplishment of each single unit of household-based accomplishments towards (a) household sewerage connection, (b) tap water connections, and for (c) completion of toilet construction, the user charges would be paid as per the table below. On receipt of payment from ULB, by each month, the user-CSO/ MCSO and SSU would make payment to the technology agency within next 6 bank-days of every month. Following such timeline, in case of non-payment of user fee, e-mail-based alerts would be auto-generated for users concerned. The SSU would be brought into facilitating redressal of such cases as and if they arise before withdrawal of digital services.
+                                    </p>
+                                </div>
+                              </div> 
+                              <div class="col-12 m-t-10">
+                                 <h4 class="text-center">उपरोक्त डिजिटल सेवाओं के लिए निर्धारित फीस/ Rates of user fees</h4>
+                              </div>
+                              <div class="col-12 m-t-10">
+                                    <table class="table table-bordered">
+                                            <tr>
+                                              <th  rowspan="2">कार्य-उपलब्धी के इकाई (एक गृह) Units of accomplishment</th>
+                                              <th colspan="4">Price/ per  accomplishments in Rs.</th>
+                                            </tr>
+                                            
+                                            <tr>
+                                              <th>CSO</th>
+                                              <th>MCSO</th>
+                                              <th>SSU</th>
+                                              <th class="bg-info">Total</th>
+                                            </tr>
+                                            <tr>
+                                              <td>पहला 10,000 गृहवार कार्य उपलब्धि के लिए First 10,000 accomplishments</td>
+                                              <td><span>7.50</span><span class="small-text text-primary">3.75%</div></td>
+                                              <td><span>3.00</span><span class="small-text text-primary">6.00%</div></td>
+                                              <td><span>2.00</span><span class="small-text text-primary">8.00%</div></td>
+                                              <td class="bg-info"><span>12.50</span><span class="small-text text-white">4.55%</div></td>
+                                            </tr>
+                                            <tr>
+                                              <td>अगले 40,000 गृहवार कार्य उपलब्धि के लिए
+                                          Next 40,000 accomplishments
+                                          </td>
+                                              <td><span>6.00</span><span class="small-text text-primary">3.00%</div></td>
+                                              <td><span>2.50</span><span class="small-text text-primary">5.00%</div></td>
+                                              <td><span>1.50</span><span class="small-text text-primary">6.00%</div></td>
+                                              <td class="bg-info"><span>10.00</span><span class="small-text text-white">3.64%</div></td>
+                                            </tr>
+                                            <tr>
+                                              <td>50,000 से ज़्यादा गृहवार कार्य उपलब्धि के लिए
+                                          Over 50,000 accomplishments
+                                          </td>
+                                              <td><span>4.50</span><span class="small-text text-primary">2.25%</div></td>
+                                              <td><span>2.00</span><span class="small-text text-primary">4.00%</div></td>
+                                              <td><span>1.00</span><span class="small-text text-primary">4.00%</div></td>
+                                              <td class="bg-info"><span>7.50</span><span class="small-text text-white">2.73%</div></td>
+                                            </tr>
+                                          </table>
+                                          <p class="text-danger">सभी उपयोगी टैक्स सम्मिलित हैं / Inclusive of all taxes as applicable</p>
+                              </div>
+                              <div class="col-12 m-t-20 text-center">
+                                    <button type="button" class="btn btn-success waves-effect w-md waves-light m-b-5">मैं सहमत हूँ<br />
+                                            I AGREE
+                                            </button>
+                              </div>
+                              <div class="col-12 m-t-20">
+                                  <p class="text-secondary">(सहमति के इस बटन को स्वीकार कर आप उपरोक्त सभी शर्तों एवं नियमों के पालन करने को स्वीकार करते हैं I इस पोर्टल से एक स्वसृजित ई-मेल आपके द्वारा भरे गए सभी सूचनाओं के साथ आपके पंजीकृत ई-मेल पर प्रेषित की जाएगी जिसकी एक प्रति Triline को प्रेषित हो जाएगी I/ By clicking to agree the user confirms that he/ she has read, understood and agrees with the terms and conditions. A confirmatory e-mail would be sent to the authorized e-mail of the user and a copy of the same shared with Triline). </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- end row -->
+               </div>
+               <!-- end card-box -->
+            </div>
+            <!-- end col -->
+         </div>
+         <!-- end row -->
+      </div>
+      <!-- end wrapper -->
+      
+      <!-- Footer -->
+      <footer class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 text-center">
+               </div>
+            </div>
+         </div>
+      </footer>
+
+      
+      <!-- End Footer -->
+      <!-- jQuery  -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/waves.js"></script>
+      <script src="assets/js/jquery.slimscroll.js"></script>
+      <!-- App js -->
+      <script src="assets/js/jquery.core.js"></script>
+      <script src="assets/js/jquery.app.js"></script>
+   </body>
+</html>

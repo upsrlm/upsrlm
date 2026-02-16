@@ -1,0 +1,358 @@
+<?php
+
+namespace bc\modules\corona\models;
+
+use Yii;
+use yii\base\Model;
+use common\models\User;
+use common\models\base\GenralModel;
+use yii\helpers\ArrayHelper;
+
+/**
+ * Report  
+ */
+class Graph extends Model {
+
+    public $id;
+    public $bc_application_id;
+    public $srlm_bc_selection_user_id;
+    public $bc_name;
+    public $division_code;
+    public $division_name;
+    public $district_code;
+    public $district_name;
+    public $block_code;
+    public $block_name;
+    public $gram_panchayat_code;
+    public $gram_panchayat_name;
+    public $village_code;
+    public $village_name;
+    public $hamlet;
+    public $que1a;
+    public $que2a;
+    public $que3a;
+    public $que4a;
+    public $gps;
+    public $gps_accuracy;
+    public $created_at;
+    public $updated_at;
+    public $status;
+
+    /**
+     * @return array the validation rules.
+     */
+    public function rules() {
+        return [
+            [['district_code', 'block_code', 'village_code', 'gram_panchayat_code', 'que1a'], 'safe'],
+            [['que2a', 'que3a', 'status', 'que3a', 'que4a', 'division_code'], 'safe'],
+        ];
+    }
+
+    public function attributeLabels() {
+        return [
+            'district_code' => 'District',
+            'division_code' => 'Division',
+            'block_code' => 'Block',
+            'gram_panchayat_code' => 'Gram Panchayat',
+            'village_code' => 'Village',
+            'que1a' => 'क्या आपके गाँव/ ग्राम पंचायत में काफ़ी लोगों को तेज बुख़ार, साँस की तकलीफ़, सीने में जकड़न इत्यादि की शिकायत है ?',
+            'que2a' => 'अगर हाँ तो % ?',
+            'que3a' => 'पिछले एक दो महीने में गाँव/ ग्रा०प० में कितने लोगों की मृत्यु हुई है ?',
+            'que4a' => 'पिछले कुछ दिनों में गाँव में इस तरह के बीमारियों की गम्भीरता कैसी है?',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'status' => 'Status',
+        ];
+    }
+
+    public function corona($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(CASE WHEN srlmbc.que1a  = '1' THEN 1 ELSE 0 END) AS que1a1,
+                      SUM(CASE WHEN srlmbc.que1a  = '2' THEN 1 ELSE 0 END) AS que1a2,
+                      SUM(CASE WHEN srlmbc.que2a  = '1' THEN 1 ELSE 0 END) AS que2a1,
+                      SUM(CASE WHEN srlmbc.que2a  = '2' THEN 1 ELSE 0 END) AS que2a2,
+                      SUM(CASE WHEN srlmbc.que2a  = '3' THEN 1 ELSE 0 END) AS que2a3,
+                      SUM(CASE WHEN srlmbc.que2a  = '4' THEN 1 ELSE 0 END) AS que2a4,                  
+                      SUM(CASE WHEN srlmbc.que3a  = '1' THEN 1 ELSE 0 END) AS que3a1,
+                      SUM(CASE WHEN srlmbc.que3a  = '2' THEN 1 ELSE 0 END) AS que3a2,
+                      SUM(CASE WHEN srlmbc.que3a  = '3' THEN 1 ELSE 0 END) AS que3a3,
+                      SUM(CASE WHEN srlmbc.que3a  = '4' THEN 1 ELSE 0 END) AS que3a4,
+                      SUM(CASE WHEN srlmbc.que3a  = '5' THEN 1 ELSE 0 END) AS que3a5,
+                      SUM(CASE WHEN srlmbc.que4a  = '1' THEN 1 ELSE 0 END) AS que4a1,
+                      SUM(CASE WHEN srlmbc.que4a  = '2' THEN 1 ELSE 0 END) AS que4a2,
+                      SUM(CASE WHEN srlmbc.que4a  = '3' THEN 1 ELSE 0 END) AS que4a3,
+                      COUNT(*) AS total
+                      FROM  bc_corona_feedback AS srlmbc";
+        $where = " where srlmbc.status !=-1 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->que1a) {
+            $where .= ' and srlmbc.que1a=' . $this->que1a;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+    public function phone_type($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(CASE WHEN srlmbc.phone_type  = '1' THEN 1 ELSE 0 END) AS pt1,
+                      SUM(CASE WHEN srlmbc.phone_type  = '2' THEN 1 ELSE 0 END) AS pt2,
+                      COUNT(*) AS total
+                      FROM  srlm_bc_application AS srlmbc";
+        $where = " where srlmbc.status !=-1 and srlmbc.form_number=6 and srlmbc.gender=2 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->graph_selection) {
+            $where .= ' and srlmbc.status=' . $this->status;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+    public function whatsup($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(CASE WHEN srlmbc.whats_app_number  = '1' THEN 1 ELSE 0 END) AS yes,
+                      SUM(CASE WHEN srlmbc.whats_app_number  = '2' THEN 1 ELSE 0 END) AS no,
+                      COUNT(*) AS total
+                      FROM  srlm_bc_application AS srlmbc";
+        $where = " where srlmbc.status !=-1 and srlmbc.form_number=6 and srlmbc.gender=2 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->graph_selection) {
+            $where .= ' and srlmbc.status=' . $this->status;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+    public function edu($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(CASE WHEN srlmbc.reading_skills  = '1' THEN 1 ELSE 0 END) AS reds1,
+                      SUM(CASE WHEN srlmbc.reading_skills  = '2' THEN 1 ELSE 0 END) AS reds2,
+                      SUM(CASE WHEN srlmbc.reading_skills  = '3' THEN 1 ELSE 0 END) AS reds3,
+                      SUM(CASE WHEN srlmbc.reading_skills  = '4' THEN 1 ELSE 0 END) AS reds4,
+                      SUM(CASE WHEN srlmbc.reading_skills  = '5' THEN 1 ELSE 0 END) AS reds5,
+                      COUNT(*) AS total
+                      FROM  srlm_bc_application AS srlmbc";
+        $where = " where srlmbc.status !=-1 and srlmbc.form_number=6 and srlmbc.gender=2 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->graph_selection) {
+            $where .= ' and srlmbc.status=' . $this->status;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+    public function cast($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(CASE WHEN srlmbc.cast  = '1' THEN 1 ELSE 0 END) AS cast1,
+                      SUM(CASE WHEN srlmbc.cast  = '2' THEN 1 ELSE 0 END) AS cast2,
+                      SUM(CASE WHEN srlmbc.cast  = '3' THEN 1 ELSE 0 END) AS cast3,
+                      SUM(CASE WHEN srlmbc.cast  = '4' THEN 1 ELSE 0 END) AS cast4,
+                      COUNT(*) AS total
+                      FROM  srlm_bc_application AS srlmbc";
+        $where = " where srlmbc.status !=-1 and srlmbc.form_number=6 and srlmbc.gender=2 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->graph_selection) {
+            $where .= ' and srlmbc.status=' . $this->status;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+    public function agm($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(CASE WHEN srlmbc.already_group_member  = '1' THEN 1 ELSE 0 END) AS agm1,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '2' THEN 1 ELSE 0 END) AS agm2,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '3' THEN 1 ELSE 0 END) AS agm3,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '4' THEN 1 ELSE 0 END) AS agm4,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '5' THEN 1 ELSE 0 END) AS agm5,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '6' THEN 1 ELSE 0 END) AS agm6,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '7' THEN 1 ELSE 0 END) AS agm7,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '8' THEN 1 ELSE 0 END) AS agm8,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '9' THEN 1 ELSE 0 END) AS agm9,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '10' THEN 1 ELSE 0 END) AS agm10,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '11' THEN 1 ELSE 0 END) AS agm11,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '12' THEN 1 ELSE 0 END) AS agm12,
+                      SUM(CASE WHEN srlmbc.already_group_member  = '13' THEN 1 ELSE 0 END) AS agm13,
+                      COUNT(*) AS total
+                      FROM  srlm_bc_application AS srlmbc";
+        $where = " where srlmbc.status !=-1 and srlmbc.form_number=6 and srlmbc.gender=2 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->graph_selection) {
+            $where .= ' and srlmbc.status=' . $this->status;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+    public function age($params) {
+        if (isset($params->attributes))
+            $this->setAttributes($params->attributes);
+        else {
+            $this->load($params);
+        }
+        $graph = [];
+
+        $query = "SELECT
+                      SUM(IF(age BETWEEN 18 and 25,1,0)) AS age1,
+                      SUM(IF(age BETWEEN 26 and 32,1,0)) AS age2,
+                      SUM(IF(age BETWEEN 33 and 40,1,0)) AS age3,
+                      SUM(IF(age BETWEEN 41 and 50,1,0)) AS age4,
+                      SUM(IF(age > 50,1,0)) AS age5,
+                      COUNT(*) AS total
+                      FROM  srlm_bc_application AS srlmbc";
+        $where = " where srlmbc.status !=-1 and srlmbc.form_number=6 and srlmbc.gender=2 ";
+        if ($this->division_code) {
+            $where .= ' and srlmbc.division_code=' . $this->division_code;
+        }
+        if ($this->district_code) {
+            $where .= ' and srlmbc.district_code=' . $this->district_code;
+        }
+        if ($this->block_code) {
+            $where .= ' and srlmbc.block_code=' . $this->block_code;
+        }
+        if ($this->gram_panchayat_code) {
+            $where .= ' and srlmbc.gram_panchayat_code=' . $this->gram_panchayat_code;
+        }
+        if ($this->village_code) {
+            $where .= ' and srlmbc.village_code=' . $this->village_code;
+        }
+        if ($this->graph_selection) {
+            $where .= ' and srlmbc.status=' . $this->status;
+        }
+        $query .= $where;
+        $graph = \Yii::$app->dbbc->createCommand($query)->queryOne();
+        return $graph;
+    }
+
+}

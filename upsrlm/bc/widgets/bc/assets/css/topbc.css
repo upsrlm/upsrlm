@@ -1,0 +1,12 @@
+@media (min-width: 576px) {
+  .service-item.newsizeimg img {
+    height: 260px !important;
+  }
+}
+.service-item img {
+  width: 100%;
+  overflow: hidden;
+  height: 410px;
+  object-fit: cover;
+  object-position: top;
+}

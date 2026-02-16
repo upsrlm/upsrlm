@@ -1,0 +1,481 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1 Apr, 2015, 8:01:02 PM
+    Author     : tli4
+*/
+
+
+.logo{
+    height: 30px;
+    margin-right:30px;
+    margin-top:8px;
+    margin-bottom: 20px;
+}
+.dropdown-menu {
+    min-width: 180px;
+/*    width: 180px;*/
+}
+
+.navbar{
+    height: 7px;
+    margin-bottom: -15px;
+    background-color: #333444 ;
+}
+
+.ace-nav > li > a{
+    padding: 0 4px 0px 6px;
+    background-color: #333444;
+}
+.ace-nav > li > a > span{
+    padding-left:2px;
+}
+
+.dropdown-menu.dropdown-menu-right.dropdown-caret::after, .dropdown-menu.dropdown-caret-right.dropdown-caret::after {
+    right: 7px;
+}
+
+.dropdown-menu.dropdown-close.dropdown-menu-right {
+    right: 0;
+}
+
+div.tabbable .nav > li.active {
+    font-weight: bold;   
+}
+
+
+div.tabbable .nav-tabs > li > a {
+    padding: 10px 30px;
+}
+
+.page-content{
+    padding: 0px;
+}
+
+.page-header h1.form-title {
+    font-weight: normal;
+}
+
+.nav-list{
+    margin-top:-15px;
+}
+
+#soft-download{
+    color:#fff;
+}
+
+.page-header{
+    padding-bottom: 15px;
+    padding-top: 0px;
+    border-bottom: none;
+}
+
+#close-button{
+    margin-top: -14px;
+}
+
+.table-header{
+    background-color: #6fb3e0 !important;
+}
+/*Metro tiles menu*/
+.dynamicTile .col-sm-2.col-xs-4 {
+        padding: 5px;
+    }
+    .dynamicTile .col-sm-3.col-xs-4 {
+        padding: 5px;
+    }
+    .dynamicTile a:hover a:focus{
+      text-decoration: none;  
+    }
+    
+    .dynamicTile .col-sm-4.col-xs-8 {
+        padding: 5px;
+    }
+    .dynamicTile .col-sm-4.col-xs-4 {
+        padding: 5px;
+    }
+    .bigicon {
+        font-size: 67px;
+        color: white;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .icontext {
+        color: white;
+        font-size: 27px;
+    }
+
+    .bigicondark {
+        font-size: 67px;
+        color: black;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .icontextdark {
+        color: black;
+        font-size: 27px;
+    }
+
+    
+
+    .bgb1 {
+        background: #7C91C7;
+    }
+
+    .bgb2 {
+        background: #3B579D;
+    }
+
+    .bgb3 {
+        background: #153178;
+    }
+
+    .bgb4 {
+        background: #00ACEE;
+    }
+
+    .bgb5 {
+        background: #EACF46;
+    }
+
+    .bgb6{
+        background: #FFED94;
+    }
+
+    .bgb7 {
+        background: white;
+    }
+
+    .bgb8 {
+        background: #03133C;
+    }
+
+    .bgb9 {
+        background: #EACF46;
+    }
+
+    .bgb10 {
+        background: #D14626;
+    }
+
+    .tilecaption {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        margin: 0!important;
+        text-align: center;
+        color: white;
+        font-family: Segoe UI;
+        font-weight: lighter;
+    }
+
+/*@media  (min-width: 640px) {
+    #navbar-container, #navbar{
+        height: 7px;
+        margin-bottom: -15px;
+        background-color: #333444 ;
+    }
+}
+
+// For making responsive the right corner navbar buttons, at different screen size
+@media  (min-width: 100px) and (max-width: 992px){
+    #right-nav-buttons{
+        margin-top:4.8px;
+    }
+}
+
+@media  (min-width: 200px) {
+    #right-nav-buttons-inner{
+        padding-left:none
+    }
+}
+
+@media  (min-width: 300px) {
+    #right-nav-buttons-inner{
+        padding-left:2%
+    }
+}
+
+*/@media (min-width: 160px) and (max-width: 770px) {
+    #right-nav-buttons-inner{
+
+    }
+}/*
+
+@media  (min-width: 400px) {
+    #right-nav-buttons-inner{
+        padding-left:8%
+    }
+}
+@media  (min-width: 450px) {
+    #right-nav-buttons-inner{
+        padding-left:10%
+    }
+}   
+@media  (min-width: 510px) {
+    #right-nav-buttons-inner{
+        padding-left:23%
+    }
+   
+}
+
+@media  (min-width: 590px) {
+    #right-nav-buttons-inner{
+        padding-left:26%
+    }
+   
+}
+
+@media  (min-width: 630px) {
+    #right-nav-buttons-inner{
+        padding-left:30%
+    } 
+}*/
+
+/*@media  (min-width: 800px) {
+    #right-nav-buttons{
+       margin-right:40px;
+    }
+}*/
+
+
+
+/*
+.top-menu-adjust{
+    position:relative !important;
+    z-index:10 !important;
+}
+body{
+    font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;  
+}
+h5.bigger {
+    font-size: 18px !important;
+    font-weight: bold;
+     font-weight: 600 !important;
+  font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif !important;
+}
+.dropdown-navbar > li > a {
+    font-size: 18px !important;
+}
+label {
+    font-size: 18px !important;
+     font-weight: 600 !important;
+  font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif !important;
+}
+.form-control {
+     font-size: 18px !important;
+  
+}
+breadcrumb {
+    font-size: 18px !important;
+}
+.pricing-box .btn {
+	font-size: 18px;
+}
+*/
+.page-content {
+    background-color: #e9e9e9 !important;
+}
+.widget-main {
+    padding: 3px !important;
+}
+.breadcrumb {
+    font-weight: bold;
+}
+.table-header {
+    font-size: 18px !important;
+    margin-top: 5px !important;
+}
+.custom-header {
+  font-size: 18px;
+  line-height: 38px;
+  margin-bottom: 1px;
+}
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.lmask {
+  position: absolute;
+  height: 100%;
+  width: 100%; 
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+/*  animation: spin 2s linear infinite;*/
+  opacity: 0.4;
+  &.fixed {
+    position: fixed;
+  }
+  &:before {
+    content: '';
+    background-color: rgba(0,0,0,0);
+    border: 5px solid rgba(0,183,229,0.9);
+    opacity: .9;
+    border-right: 5px solid rgba(0,0,0,0);
+    border-left: 5px solid rgba(0,0,0,0);
+    border-radius: 50px;
+    box-shadow: 0 0 35px #2187e7;
+    width: 50px;
+    height: 50px;
+    -moz-animation: spinPulse 1s infinite ease-in-out;
+    -webkit-animation: spinPulse 1s infinite linear;
+
+    margin: -25px 0 0 -25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  &:after {
+    content: '';
+    background-color: rgba(0,0,0,0);
+    border: 5px solid rgba(0,183,229,0.9);
+    opacity: .9;
+    border-left: 5px solid rgba(0,0,0,0);
+    border-right: 5px solid rgba(0,0,0,0);
+    border-radius: 50px;
+    box-shadow: 0 0 15px #2187e7;
+    width: 30px;
+    height: 30px;
+    -moz-animation: spinoffPulse 1s infinite linear;
+    -webkit-animation: spinoffPulse 1s infinite linear;
+
+    margin: -15px 0 0 -15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+}
+
+@-moz-keyframes spinPulse {
+  0% {
+    -moz-transform:rotate(160deg);
+    opacity: 0;
+    box-shadow: 0 0 1px #2187e7;
+  }
+  50% {
+    -moz-transform: rotate(145deg);
+    opacity: 1;
+  }
+  100% {
+    -moz-transform: rotate(-320deg);
+    opacity: 0;
+  }
+}
+@-moz-keyframes spinoffPulse {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spinPulse {
+  0% {
+    -webkit-transform: rotate(160deg);
+    opacity: 0;
+    box-shadow: 0 0 1px #2187e7;
+  }
+  50% {
+    -webkit-transform: rotate(145deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-320deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes spinoffPulse {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
+
+/*
+body{
+    font-size: 22px;
+    font-family: Arial Narrow, sans serif;
+}
+h5, h5{
+   font-family:  Arial Narrow, sans serif;
+}
+.form-control{
+    color: #393939;
+}
+.widget-box .widget-header{
+    font-weight: 600;
+}
+.pricing-box .price{
+    padding-top: 6px;
+     color: #393939;
+}
+.select2-container--krajee .select2-selection--single .select2-selection__rendered{
+    color: #393939;
+}
+.select2-container--krajee .select2-selection--single .select2-selection__placeholder{
+    color: #393939;
+}
+label {
+    font-weight: normal;
+    font-size: 18px;
+}
+.form-control{
+    font-size: 22px;
+}
+h5.bigger {
+    font-size: 26px;
+}
+.pricing-box .price{
+    font-size: 26px;
+}
+.pricing-box .btn {
+    font-size: 20px;
+}
+.btn-sm{
+    font-size: 20px;
+}
+.pull-left  .ace-nav > li > a > span {
+    padding-left: 2px;
+    font-size: 26px;
+}
+.widget-color-orange > .widget-header {
+     color: #393939;
+}
+
+.page-content > .row .col-lg-12{
+    padding-left: 10px;
+    padding-right: 0px;
+}
+
+.form-group .col-lg-12{
+    padding-left: 10px;
+    padding-right: 0px;
+}
+*/

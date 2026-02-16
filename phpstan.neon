@@ -1,0 +1,15 @@
+parameters:
+    level: 0
+
+    paths:
+        - upsrlm/common
+        - upsrlm/frontend
+        - upsrlm/backend
+
+    bootstrapFiles:
+        - vendor/autoload.php
+
+    excludePaths:
+        - */runtime/*
+        - */vendor/*
+        - */web/assets/*

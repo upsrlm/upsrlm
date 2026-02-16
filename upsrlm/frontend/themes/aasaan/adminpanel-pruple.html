@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Adminto - Responsive Admin Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css"/>
+        <link href="assets/css/custom-a-l-purple.css" rel="stylesheet" type="text/css" />
+
+        <script src="assets/js/modernizr.min.js"></script>
+
+    </head>
+
+    <body id="home">
+
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <div class="topbar-main al-topbar">
+                <div class="d-flex justify-content-around align-items-center">
+
+                    <a href="index.html" class="p-2 logo">
+                        <img src="assets/images/upg-sm-logo.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/upg-sm-logo.png" alt="" height="100%" class="logo-large">
+                    </a>
+                    <!-- End Logo container-->
+                    <div class="flex-grow-1 top-heading">
+                        <h1>नगर विकास विभाग, उत्तर प्रदेश शासन</h1>
+                        <span>नागरिक सहभागिता सुनिश्चित करने के लिए CSOs से सम्बद्धता</span>
+                    </div>
+                    <div class="flex-grow-1 top-heading text-right">
+                        <h1>स्वच्छ भारत मिशन - शहरी</h1>
+                    </div>
+                    <div class="p-2 right-logo">
+                        <img src="assets/images/sbm-sm-logo.png" />
+                    </div>
+
+
+                    <div class="clearfix"></div>
+
+                </div> <!-- end container -->
+            </div>
+            <!-- end topbar-main -->
+            <div class="nav-container d-flex justify-content-around align-items-center">
+                <div class="navbar-custom al-nav-bar flex-grow-1">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+                        <ul class="navigation-menu">
+                            <li class="active">
+                                <a href="#" style="padding-left: 10px;"><i class="mdi mdi-home"></i> <span> Home </span> </a>
+                            </li>
+
+                            <li class="">
+                                <a href="#"><i class="mdi mdi-earth"></i><span> About </span> </a>
+                            </li>
+
+                            <li class="">
+                                <a href="#"><i class="mdi mdi-information-outline"></i> <span> FAQ </span> </a>
+                            </li>
+
+                            <li class="">
+                                <a href="#"><i class="mdi mdi-email"></i><span> Contact </span> </a>
+                            </li>
+                        </ul>
+                        <!-- End navigation menu -->
+                    </div> <!-- end #navigation -->
+                </div> <!-- end navbar-custom -->
+                <div class="menu-extras topbar-custom d-flex justify-content-around align-items-center">
+                        <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+                                <li class="menu-item">
+                                    <!-- Mobile menu toggle-->
+                                    <a class="navbar-toggle nav-link">
+                                        <div class="lines">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                    <!-- End mobile menu toggle-->
+                                </li>
+                        </ul>
+                        <button type="button" class="btn btn-info btn-rounded waves-effect waves-light btn-sm"><i class="mdi mdi-help-circle"></i>    Help</button>
+                        <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <img src="assets/images/man.svg" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-user m-r-5"></i> Profile
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-settings m-r-5"></i> Settings
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-lock m-r-5"></i> Lock screen
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="ti-power-off m-r-5"></i> Logout
+                                    </a>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                <!--<div class="u-wrapper">
+                    <div class="use-emj">
+                        <i class="mdi mdi-home"></i>
+                    </div>
+                </div>-->
+            </div>
+        </header>
+        <!-- End Navigation Bar-->
+
+
+        <div class="wrapper">
+            <div class="container-fluid">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="page-title">Registration of CSOs/ MCSOs and SSUs for using the portal</h4>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                            <h4 class="m-t-0 header-title text-center">Part – 1 : यूजर पंजीकरण फॉमट / User registration form</h4>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="p-20">
+                                        <div class="form-group row">
+                                            <label class="col-2 col-form-label">Name of Entity (Given)</label>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control" disabled value="Chandra Kamal">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-2 col-form-label">Address</label>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control" disabled value="Vashundhara">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-2 col-form-label">Contact</label>
+                                            <label class="col-1 col-form-label">Mobile :</label>
+                                            <div class="col-4">
+                                                <input type="number" class="form-control" disabled value="9717773445">
+                                            </div>
+                                            <label class="col-1 col-form-label">Email :</label>
+                                            <div class="col-4">
+                                                <input type="email" class="form-control" disabled value="chandra.kamal1@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row  m-b-30">
+                                            <label class="col-2 col-form-label">Website</label>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control" disabled value="www.aasaan.website">
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered m-b-30">
+                                            <tr>
+                                                <td class="font-weight-bold">Project detail (Given)</td>
+                                                <td>HSC(AMRUT)</td>
+                                                <td>HSC (SMCG)</td>
+                                                <td>DWC (AMRUT)</td>
+                                                <td>IHHL (SBM-U)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold">Specify role (Given)</td>
+                                                <td>CSO/ SSU</td>
+                                                <td>Disable</td>
+                                                <td>CSO/ MCSO/SSU</td>
+                                                <td>CSO/ MCSO/SSU</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-weight-bold">Project area(s) (Given)</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-12 m-b-20">
+                                                <h4><b>Key designated officials/ nodal persons</b> (Details must match with MoU with SGRCA/ SBM-U/ AMRUT)</h4>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Name of statutory/ authorized Head :</label>
+                                                        <input type="text" class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Phone no. :</label>
+                                                        <input type="number" class="form-control" placeholder="Mobile">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Email id :</label>
+                                                        <input type="email" class="form-control"placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Name of MoU signatory : SBM-U :</label>
+                                                        <input type="text" class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Phone no. :</label>
+                                                        <input type="number" class="form-control" placeholder="Mobile">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Email id :</label>
+                                                        <input type="email" class="form-control"placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Name of MoU signatory : AMRUT :</label>
+                                                        <input type="text" class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Phone no. :</label>
+                                                        <input type="number" class="form-control" placeholder="Mobile">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Email id :</label>
+                                                        <input type="email" class="form-control"placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Name of Project in-charge 1, if any :</label>
+                                                        <input type="text" class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Phone no. :</label>
+                                                        <input type="number" class="form-control" placeholder="Mobile">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Email id :</label>
+                                                        <input type="email" class="form-control"placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Name of Project in-charge 2, if any :</label>
+                                                        <input type="text" class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Phone no. :</label>
+                                                        <input type="number" class="form-control" placeholder="Mobile">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="col-form-label">Email id :</label>
+                                                        <input type="email" class="form-control"placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group row m-t-30">
+                                                    <div class="col-12 text-center">
+                                                        <button type="button" class="btn btn-primary mb-2">Next&nbsp;&nbsp;<i class="mdi mdi-chevron-right"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                        </div> <!-- end card-box -->
+                    </div><!-- end col -->
+                </div>
+                <!-- end row -->
+
+        </div>
+        <!-- end wrapper -->
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+
+    </body>
+</html>

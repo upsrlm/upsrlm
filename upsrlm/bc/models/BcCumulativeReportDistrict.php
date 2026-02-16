@@ -1,0 +1,120 @@
+<?php
+
+namespace bc\models;
+
+use Yii;
+
+/**
+ * This is the model class for table "bc_cumulative_report_district".
+ *
+ * @property int $id
+ * @property int|null $district_code
+ * @property string|null $district_name
+ * @property int|null $master_partner_bank_id
+ * @property string|null $partner_bank_name
+ * @property int $blocked_bc
+ * @property int $certified_bc
+ * @property int $agree
+ * @property int $unwilling
+ * @property int $registered
+ * @property int $not_certified
+ * @property int $ineligible
+ * @property int $absent
+ * @property int $onboard_bc
+ * @property int $pvr
+ * @property int $shg_assigned
+ * @property int $bc_shg_bank_verified
+ * @property int $pfms_mapping
+ * @property int $bc_support_fund_shg_transfer
+ * @property int $bc_support_fund_shg_acknowledge
+ * @property int $handheld_machine_provided
+ * @property int $handheld_machine_acknowledge
+ * @property int $operational
+ * @property float $bc_bank_transaction
+ * @property int $no_of_bc_shortlisted
+ * @property int $no_of_training_conculded
+ * @property int $no_of_training_planned
+ * @property int $no_of_bc_appeared_training
+ * @property int $no_of_bc_registered
+ * @property int $no_of_gp
+ * @property int $no_of_unwilling
+ * @property float $bc_bank_transaction_avg_amt
+ * @property int $bc_bank_transaction_count
+ * @property float $honorarium_payment_to_bc
+ * @property string|null $date
+ * @property string $last_updated_on
+ */
+class BcCumulativeReportDistrict extends BcactiveRecord {
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName() {
+        return 'bc_cumulative_report_district';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules() {
+        return [
+            [['district_code', 'master_partner_bank_id', 'certified_bc', 'onboard_bc', 'pvr', 'shg_assigned', 'bc_shg_bank_verified', 'pfms_mapping', 'bc_support_fund_shg_transfer', 'bc_support_fund_shg_acknowledge', 'handheld_machine_provided', 'handheld_machine_acknowledge', 'no_of_bc_shortlisted', 'no_of_training_conculded', 'no_of_training_planned', 'no_of_bc_appeared_training', 'no_of_gp', 'no_of_unwilling', 'bc_bank_transaction_count'], 'integer'],
+            [['bc_bank_transaction', 'bc_bank_transaction_avg_amt', 'honorarium_payment_to_bc'], 'number'],
+            [['date', 'last_updated_on'], 'safe'],
+            [['last_updated_on'], 'required'],
+            [['district_name'], 'string', 'max' => 150],
+            [['partner_bank_name'], 'string', 'max' => 255],
+            [['unwilling', 'registered', 'not_certified', 'ineligible', 'absent', 'agree', 'blocked_bc'], 'integer'],
+            [['operational'], 'integer'],
+            [['district_code', 'date'], 'unique', 'targetAttribute' => ['district_code', 'date']],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels() {
+        return [
+            'id' => 'ID',
+            'district_code' => 'District',
+            'district_name' => 'District Name',
+            'master_partner_bank_id' => 'Partner Bank',
+            'partner_bank_name' => 'Partner Bank Name',
+            'certified_bc' => 'Certified BC',
+            'onboard_bc' => 'Onboard BC',
+            'pvr' => 'PVR',
+            'shg_assigned' => 'Shg Assigned',
+            'bc_shg_bank_verified' => 'Bc Shg Bank Verified',
+            'pfms_mapping' => 'PFMS Mapping',
+            'bc_support_fund_shg_transfer' => 'BC Support Fund Shg Transfer',
+            'bc_support_fund_shg_acknowledge' => 'BC Support Fund Shg Acknowledge',
+            'handheld_machine_provided' => 'Handheld Machine Provided',
+            'handheld_machine_acknowledge' => 'Handheld Machine Acknowledge',
+            'bc_bank_transaction' => 'BC Bank Transaction',
+            'no_of_bc_shortlisted' => 'No Of Bc Shortlisted',
+            'no_of_training_conculded' => 'No Of Training Conculded',
+            'no_of_training_planned' => 'No Of Training Planned',
+            'no_of_bc_appeared_training' => 'No Of BC Appeared Training',
+            'no_of_gp' => 'No Of GP',
+            'no_of_unwilling' => 'No Of Unwilling',
+            'bc_bank_transaction_avg_amt' => 'BC Bank Transaction Avg Amt',
+            'bc_bank_transaction_count' => 'BC Bank Transaction Count',
+            'honorarium_payment_to_bc' => 'Honorarium Payment To BC',
+            'date' => 'Date',
+            'last_updated_on' => 'Last Updated On',
+        ];
+    }
+
+    public static function getTotal($provider, $columnName) {
+        $total = 0;
+
+        foreach ($provider as $item) {
+            $total += $item[$columnName];
+        }
+
+        return $total;
+    }
+    public function getDistrict() {
+        return $this->hasOne(master\MasterDistrict::className(), ['district_code' => 'district_code']);
+    }
+}

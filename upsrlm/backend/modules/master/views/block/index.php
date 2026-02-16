@@ -1,0 +1,211 @@
+<?php
+
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\web\View;
+use yii\widgets\Pjax;
+use kartik\grid\GridView;
+use common\models\User;
+use yii\bootstrap4\Modal;
+use common\models\master\MasterRole;
+
+/* @var $this yii\web\View */
+/* @var $searchModel app\models\master\MasterBlockSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Blocks';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="row">
+    <div class="col-xl-12">
+        <div id="panel-1" class="panel">
+            <div class="panel-hdr">
+                <h2>
+                    <?= $this->title ?>
+                </h2>
+                <div class="panel-toolbar">
+
+                    <!-- <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button> -->
+                    <!--                    <button class="btn btn-panel waves-effect waves-themed" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>-->
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+                    <?php
+                    Pjax::begin([
+                        'id' => 'grid-data',
+                        'enablePushState' => FALSE,
+                        'enableReplaceState' => FALSE,
+                        'timeout' => false,
+                    ]);
+                    ?>
+
+
+                    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+                    <div class="clearfix pt-6"></div>
+                    <?=
+                    GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'layout' => "\n{pager}\n{summary}\n{items}\n{pager}\n{summary}",
+                        'tableOptions' => ['class' => 'table table-striped table-bordered table-condensed table-hover'],
+                        'id' => 'grid-data',
+                        'summary' => "Showing <b>{begin}</b> - <b>{end}</b> of <b>{totalCount}</b> results",
+                        'pjax' => TRUE,
+//                        'floatHeader' => true,
+//                        'floatHeaderOptions' => ['scrollingTop' => '50'],
+                        'pager' => [
+                            'options' => ['class' => 'pagination'],
+                            'prevPageLabel' => 'Previous',
+                            'nextPageLabel' => 'Next',
+                            'firstPageLabel' => 'First',
+                            'lastPageLabel' => 'Last',
+                            'nextPageCssClass' => 'paginate_button page-item',
+                            'prevPageCssClass' => 'paginate_button page-item',
+                            'firstPageCssClass' => 'paginate_button page-item',
+                            'lastPageCssClass' => 'paginate_button page-item',
+                            'maxButtonCount' => 10,
+                        ],
+                        'columns' => [
+                            ['class' => 'yii\grid\SerialColumn', 'contentOptions' => ['style' => 'width: 4%']],
+                            [
+                                'attribute' => 'district_code',
+                                'enableSorting' => false,
+                            ],
+                            [
+                                'attribute' => 'District',
+                                'enableSorting' => false,
+                                'value' => function ($model) {
+                                    return $model->district != null ? $model->district->district_name : '';
+                                },
+                            ],
+                            [
+                                'attribute' => 'block_code',
+                                'enableSorting' => false,
+                            ],
+                            [
+                                'attribute' => 'block_name',
+                                'enableSorting' => false,
+                            ],
+                            [
+                                'attribute' => 'new_block_code',
+                                'enableSorting' => false,
+                                'value' => function ($model) {
+                                    return $model->new_block_code != null ? $model->new_block_code : '';
+                                },
+                            ],
+                            [
+                                'attribute' => 'new_block_name',
+                                'enableSorting' => false,
+                                'value' => function ($model) {
+                                    return $model->new_block_name != null ? $model->new_block_name : '';
+                                },
+                            ],
+                            [
+                                //'attribute' => 'BDO Detail',
+                                'header' => 'BDO Detail',
+                                'format' => 'raw',
+                                'enableSorting' => false,
+                                'value' => function ($model) {
+                                    //return implode(',', ArrayHelper::getColumn($model->bdo_detail->user_detail, 'mobile_no'));
+                                    $t = "";
+                                    if ($model->bdo_detail != null) {
+                                        foreach ($model->bdo_detail as $bdo) {
+                                            if (isset($bdo->user_detail))
+                                                $t .= $bdo->user_detail->mobile_no . '<br/>';
+                                        }
+                                    }
+                                    return $t;
+                                },
+                            ],
+                            [
+                                'attribute' => 'Action',
+                                'visible' => in_array(Yii::$app->user->identity->role, [MasterRole::ROLE_ADMIN, MasterRole::ROLE_SUPER_ADMIN]),
+                                'format' => 'raw',
+                                'value' => function ($model) {
+                                    $html = '';
+
+                                    $html .= yii\helpers\Html::button('<i class="fal fa-change"></i>Update New List Block Code', ['id' => 'call' . $model->id, 'class' => 'btn btn-sm btn-info popb', 'value' => '/master/block/addnewblockcode?block_code=' . $model->block_code, 'name' => 'uploadpvr', 'title' => 'Add New List Block Code : ' . $model->block_name]);
+
+                                    return $html;
+                                },
+                            ],
+                        ],
+                    ]);
+                    ?>
+                    <?php
+                    $script = <<< JS
+    $('form select').on('change', function(){
+    $(this).closest('form').submit();
+});            
+    var loader = $(".ajax");
+    $(document).on({
+        ajaxStart: function () {
+            loader.addClass("loader");
+        },
+        ajaxStop: function () {
+            loader.removeClass("loader");
+        }
+    });
+JS;
+                    $this->registerJs($script);
+                    ?>
+                    <?php
+                    $js = <<<JS
+$(function () {      
+   $('.popb').click(function(){
+        $('#imagecontent').html('');
+        $('#modal').modal('show')
+         .find('#imagecontent')
+         .load($(this).attr('value'));
+         document.getElementById('modalHeader').innerHTML = '' + $(this).attr('title') + '<i class="glyphicon glyphicon-remove icon-arrow-right pull-right fal fa-times" data-dismiss="modal" style="cursor : pointer;color:red"></i>';     
+        });
+});  
+        
+JS;
+                    $this->registerJs($js);
+                    ?> 
+
+                    <?php
+                    Modal::begin([
+                        'headerOptions' => ['id' => 'modalHeader'],
+                        'id' => 'modal',
+                        'size' => 'modal-lg',
+                        'clientOptions' => [
+                        ],
+                    ]);
+                    echo "<div id='imagecontent'></div>";
+                    Modal::end();
+                    ?>
+
+                    <?php Pjax::end(); ?> 
+
+                </div>
+            </div>  
+        </div>
+    </div>
+
+</div>
+<?php
+$this->registerJs(
+        '
+function init_click_handlers(){
+
+  $(".popb").click(function(e) {
+            var fID = $(this).closest("tr").data("key");
+            $("#modal").modal("show")
+         .find("#imagecontent")
+         .load($(this).attr("value"));
+        });
+       
+
+}
+
+init_click_handlers(); //first run
+$("#grid-data").on("pjax:success", function() {
+  init_click_handlers(); //reactivate links in grid after pjax update
+});
+
+');
+?>

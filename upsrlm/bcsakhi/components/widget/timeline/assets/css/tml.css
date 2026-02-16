@@ -1,0 +1,196 @@
+.timelines {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+}
+.timelines:before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background-color: #eeeeee;
+    left: 50%;
+    margin-left: -1.5px;
+}
+.timelines > li {
+    margin-bottom: 20px;
+    position: relative;
+}
+.timelines > li:before,
+.timeline > li:after {
+    content: " ";
+    display: table;
+}
+.timelines > li:after {
+    clear: both;
+}
+.timelines > li:before,
+.timelines > li:after {
+    content: " ";
+    display: table;
+}
+.timelines > li:after {
+    clear: both;
+}
+.timelines > li > .timeline-panel {
+    width: 46%;
+    float: left;
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+    padding: 10px;
+    position: relative;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+}
+.timelines > li > .timeline-panel:before {
+    position: absolute;
+    top: 26px;
+    right: -15px;
+    display: inline-block;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-right: 0 solid #ccc;
+    border-bottom: 15px solid transparent;
+    content: " ";
+}
+.timelines > li > .timeline-panel:after {
+    position: absolute;
+    top: 27px;
+    right: -14px;
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-right: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    content: " ";
+}
+.timelines > li > .timeline-badge {
+    color: #fff;
+    width: 70px;
+    line-height: 50px;
+    font-size: 1.4em;
+    text-align: center;
+    position: absolute;
+    top: 16px;
+    left: 51%;
+    margin-left: -40px;
+    background-color: #999999;
+    z-index: 100;
+    border-top-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.timeline-badge .day{
+    font-size: 1.0em; 
+}
+.timeline-badge .month{
+    font-size: 0.9em; 
+}
+.timeline-badge .year{
+    font-size: 0.9em;  
+}
+.timeline-badge .time{
+    font-size: 0.6em;  
+}
+.timelines > li > .timeline-badge .day{
+    display: block; 
+    line-height: 22px;
+    text-align: center;
+}
+.timelines > li > .timeline-badge .month{
+    display: block;  
+    line-height: 22px;
+    text-align: center;
+
+}
+.timelines > li > .timeline-badge .year{
+    display: block; 
+    line-height: 22px;
+    text-align: center;
+
+}
+.timelines > li > .timeline-badge .time{
+    display: block;  
+    line-height: 22px;
+    text-align: center;
+
+}
+.timelines > li.timeline-inverted > .timeline-panel {
+    float: right;
+}
+.timelines > li.timeline-inverted > .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+}
+.timelines > li.timeline-inverted > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+}
+.timeline-badge.primary {
+    background-color: #2e6da4 !important;
+}
+.timeline-badge.success {
+    background-color: #3f903f !important;
+}
+.timeline-badge.warning {
+    background-color: #f0ad4e !important;
+}
+.timeline-badge.danger {
+    background-color: #d9534f !important;
+}
+.timeline-badge.info {
+    background-color: #5bc0de !important;
+}
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+    text-transform: uppercase;
+}
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+.timeline-body > p + p {
+    margin-top: 5px;
+}
+.a1{
+    background-color: #f9d057 !important;
+    border-color: #ECF0F5;
+    color: #000000;
+}
+.a2{
+    background-color: #bdc3c7 !important;
+    border-color: #bdc3c7;
+    color: #000000;
+}
+.a3{
+    background-color: #fc6161 !important;
+    border-color: #fc6161;
+    color: #000000;
+}
+.a4{
+    background-color: #77ff77 !important;
+    border-color:  #77ff77;
+    color: #000000;
+}
+.a5{
+    background-color: #ffa321 !important;
+    border-color: #ffa321;
+    color: #000000;
+}
+.a6{
+    background-color: #60c3fc !important;
+    border-color: #60c3fc;
+    color: #000000;
+}
+.a7{
+    background-color: #f9d057 !important;
+    border-color: #60c3fc;
+    color: #000000;
+}
