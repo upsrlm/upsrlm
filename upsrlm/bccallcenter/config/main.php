@@ -59,6 +59,7 @@ return [
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'baseUrl' => '/bccallcenter',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -81,7 +82,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/' => 'dashboard',
+                '/' => 'dashboard/default/index',
                 'changepassword' => 'site/changepassword',
             ],
         ],

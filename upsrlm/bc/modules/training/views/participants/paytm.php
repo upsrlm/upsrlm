@@ -250,27 +250,27 @@ $this->params['breadcrumbs'][] = $this->title;
         
         $(document).ready(function(){
             $("#download").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/downloadbcbankcsv"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/downloadbcbankcsv"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });
          $("#downloadbc").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/downloadcsv"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/downloadcsv"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             }); 
          $("#downloadpen").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/downloadpendency"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/downloadpendency"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });                    
         $("#downloadbcs").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/csvsupport"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/csvsupport"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });         
         $("#searchbtn").click(function(event){
-                $("#Searchform").attr({ "action":"/training/participants/paytm"});
+                $("#Searchform").attr({ "action":"/bc/training/participants/paytm"});
                 $("#Searchform").attr("data-pjax", "True");
             })
        }) 
@@ -281,7 +281,7 @@ js;
                     <?php
                     $script = <<< JS
     $('form select').on('change', function(){
-    $("#Searchform").attr({ "action":"/training/participants/paytm"});
+    $("#Searchform").attr({ "action":"/bc/training/participants/paytm"});
     $("#Searchform").attr("data-pjax", "True");                
     $(this).closest('form').submit();
 });            

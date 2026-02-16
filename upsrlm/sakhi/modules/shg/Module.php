@@ -20,12 +20,15 @@ class Module extends \yii\base\Module {
      * {@inheritdoc}
      */
     public function init() {
+        parent::init();
+
+        $skipAccess = Yii::$app->params['env'] === 'local';
         $request = explode('?', Yii::$app->request->url);
         $request_url = rtrim($request[0], '/');
         if (isset($_REQUEST['shgid']))
             $this->params['shgid'] = $_REQUEST['shgid'];
         $app = new \sakhi\components\App();
-        if ($app->checkAccess('shg', Yii::$app->user->identity, $request_url, $this->params)) {
+        if ($skipAccess || $app->checkAccess('shg', Yii::$app->user->identity, $request_url, $this->params)) {
             $shgcheck = new ShgCheck();
             $shgcheck->copyshgdata();
             $log = new \sakhi\components\Ristaweblog(Yii::$app->user->identity);
@@ -47,8 +50,6 @@ class Module extends \yii\base\Module {
             Yii::$app->params['bsVersion'] = '4.x';
             Yii::$app->params['bsDependencyEnabled'] = false;
         }
-        parent::init();
-
         // custom initialization code goes here
     }
 

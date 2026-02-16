@@ -12,7 +12,7 @@ class Module extends \yii\base\Module {
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'app\modules\clf\controllers';
+    public $controllerNamespace = 'cbo\modules\clf\controllers';
 
     /**
      * {@inheritdoc}

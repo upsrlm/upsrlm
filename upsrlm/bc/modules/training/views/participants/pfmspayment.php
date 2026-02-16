@@ -282,12 +282,12 @@ $this->params['breadcrumbs'][] = $this->title;
         
         $(document).ready(function(){
             $("#download").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/pfmspaymentcsv"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/pfmspaymentcsv"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });
         $("#searchbtn").click(function(event){
-                $("#Searchform").attr({ "action":"/training/participants/pfmspayment"});
+                $("#Searchform").attr({ "action":"/bc/training/participants/pfmspayment"});
                 $("#Searchform").attr("data-pjax", "True");
             })
        }) 
@@ -298,7 +298,7 @@ js;
                     <?php
                     $script = <<< JS
     $('form select').on('change', function(){
-    $("#Searchform").attr({ "action":"/training/participants/pfmspayment"});
+    $("#Searchform").attr({ "action":"/bc/training/participants/pfmspayment"});
     $("#Searchform").attr("data-pjax", "True");                
     $(this).closest('form').submit();
 });            

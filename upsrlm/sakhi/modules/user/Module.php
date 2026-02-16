@@ -21,12 +21,13 @@ class Module extends \yii\base\Module {
      */
     public function init() {
         parent::init();
+        $skipAccess = Yii::$app->params['env'] === 'local';
         $request = explode('?', Yii::$app->request->url);
         $request_url = rtrim($request[0], '/');
         if (isset($_REQUEST['userid']))
             $this->params['userid'] = $_REQUEST['userid'];
         $app = new \sakhi\components\App();
-        if ($app->checkAccess('user', Yii::$app->user->identity, $request_url, $this->params)) {
+        if ($skipAccess || $app->checkAccess('user', Yii::$app->user->identity, $request_url, $this->params)) {
             $shgcheck = new ShgCheck();
             $shgcheck->copyshgdata();
             $log = new \sakhi\components\Ristaweblog(Yii::$app->user->identity);

@@ -13,5 +13,6 @@ Yii::setAlias('@bc', dirname(dirname(__DIR__)) . '/bc');
 Yii::setAlias('@hr', dirname(dirname(__DIR__)) . '/hr');
 Yii::setAlias('@file', dirname(dirname(__DIR__)) . '/file');
 Yii::setAlias('@bcsakhi', dirname(dirname(__DIR__)) . '/bcsakhi');
+Yii::setAlias('@bccallcenter', dirname(dirname(__DIR__)) . '/bccallcenter');
 Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 

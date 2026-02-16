@@ -9,6 +9,7 @@ use yii\helpers\ArrayHelper;
 use sakhi\components\MobileDetect;
 
 $bundle = SmartAdminRishtaAppAsset::register($this);
+$baseUrl = Yii::$app->request->baseUrl;
 $arg = explode('/', Yii::$app->request->url);
 $url = explode('/', Yii::$app->request->url);
 $mobile = new MobileDetect();
@@ -135,25 +136,25 @@ if ($mobile->isAndroidOS()) {
                             <ul id="js-nav-menu" class="nav-menu">
                                 <?php if (isset($cbo_member)) { ?>
                                     <li>
-                                        <a href="shg/application/form?shgid=<?= $cbo_member->cbo_id ?>" title="समूह सखी आवेदन प्रपत्र" data-filter-tags="application-change-pin">
+                                        <a href="<?= $baseUrl ?>/shg/application/form?shgid=<?= $cbo_member->cbo_id ?>" title="समूह सखी आवेदन प्रपत्र" data-filter-tags="application-change-pin">
                                             <span class="nav-link-text" data-i18n="nav.application_intel_introduction">समूह सखी आवेदन प्रपत्र</span>
                                         </a>
                                     </li>
                                 <?php } ?>
                                 <?php if (isset(Yii::$app->user->identity->cboprofile->srlm_bc_application_id)) { ?>
                                     <li>
-                                        <a href="/bc/default/view?bcid=<?= Yii::$app->user->identity->cboprofile->srlm_bc_application_id ?>" title="बीसी सखी प्रोफाइल" data-filter-tags="application-change-pin">
+                                        <a href="<?= $baseUrl ?>/bc/default/view?bcid=<?= Yii::$app->user->identity->cboprofile->srlm_bc_application_id ?>" title="बीसी सखी प्रोफाइल" data-filter-tags="application-change-pin">
                                             <span class="nav-link-text" data-i18n="nav.application_intel_introduction">बीसी सखी प्रोफाइल</span>
                                         </a>
                                     </li>
                                 <?php } ?>
                                 <li>
-                                    <a href="/user/default/changepin?userid=<?= Yii::$app->user->identity->id ?>" title="पिन बदलें" data-filter-tags="application-change-pin">
+                                    <a href="<?= $baseUrl ?>/user/default/changepin?userid=<?= Yii::$app->user->identity->id ?>" title="पिन बदलें" data-filter-tags="application-change-pin">
                                         <span class="nav-link-text" data-i18n="nav.application_intel_introduction">पिन बदलें</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/site/logout" title="लॉग आउट" data-filter-tags="application-log-out">
+                                    <a href="<?= $baseUrl ?>/site/logout" title="लॉग आउट" data-filter-tags="application-log-out">
                                         <span class="nav-link-text" data-i18n="nav.application_intel_introduction">लॉग आउट</span>
                                     </a>
                                 </li>

@@ -20,13 +20,14 @@ class Module extends \yii\base\Module {
      */
     public function init() {
         parent::init();
+        $skipAccess = Yii::$app->params['env'] === 'local';
         $request = explode('?', \Yii::$app->request->url);
         $request_url = rtrim($request[0], '/');
 //         throw new \yii\web\UnauthorizedHttpException("Unauthorized.");
         if (isset($_REQUEST['bcid']))
             $this->params['bcid'] = $_REQUEST['bcid'];
         $app = new \sakhi\components\App();
-        if ($app->checkAccess('bc', Yii::$app->user->identity, $request_url, $this->params)) {
+        if ($skipAccess || $app->checkAccess('bc', Yii::$app->user->identity, $request_url, $this->params)) {
             $log = new \sakhi\components\Ristaweblog(Yii::$app->user->identity);
             $log->type = 4;
             $log->type_id = $this->params['bcid'];

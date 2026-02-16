@@ -150,12 +150,12 @@ $js = <<<js
         
         $(document).ready(function(){
             $("#download").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/downloadcsv"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/downloadcsv"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });
         $("#searchbtn").click(function(event){
-                $("#Searchform").attr({ "action":"/training/participants"});
+                $("#Searchform").attr({ "action":"/bc/training/participants"});
                 $("#Searchform").attr("data-pjax", "True");
             })
        }) 

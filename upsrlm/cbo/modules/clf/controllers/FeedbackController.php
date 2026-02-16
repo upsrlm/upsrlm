@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\clf\controllers;
+namespace cbo\modules\clf\controllers;
 
 use Yii;
 use yii\base\Model;

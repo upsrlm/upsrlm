@@ -10,6 +10,7 @@ $params = array_merge(
 return [
     'id' => 'cbo-app-frontend',
     'name' => 'UP SRLM',
+    'layout' => 'main_cbo',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'cbo\components\App'],
     'on beforeRequest' => function ($event) {

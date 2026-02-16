@@ -21,12 +21,14 @@ class Module extends \yii\base\Module {
     public function init() {
         parent::init();
 
+        $skipAccess = Yii::$app->params['env'] === 'local';
+
         $request = explode('?', \Yii::$app->request->url);
         $request_url = rtrim($request[0], '/');
         if (isset($_REQUEST['clfid']))
             $this->params['clfid'] = $_REQUEST['clfid'];
         $app = new \sakhi\components\App();
-        if ($app->checkAccess('clf', Yii::$app->user->identity, $request_url, $this->params)) {
+        if ($skipAccess || $app->checkAccess('clf', Yii::$app->user->identity, $request_url, $this->params)) {
             $log = new \sakhi\components\Ristaweblog(Yii::$app->user->identity);
             $log->type = 3;
             $log->type_id = $this->params['clfid'];

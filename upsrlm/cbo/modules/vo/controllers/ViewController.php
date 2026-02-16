@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\vo\controllers;
+namespace cbo\modules\vo\controllers;
 
 use Yii;
 use cbo\models\CboVo;

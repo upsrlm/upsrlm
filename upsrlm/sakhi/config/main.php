@@ -81,7 +81,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/' => 'rest/index',
+                '/' => 'site/login',
+                'bc' => 'bc/default/index',
+                'bc/<controller>/<action>' => 'bc/<controller>/<action>',
             ],
         ],
     ],

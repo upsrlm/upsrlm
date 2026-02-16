@@ -297,12 +297,12 @@ $this->params['breadcrumbs'][] = $this->title;
         
         $(document).ready(function(){
             $("#download").click(function(event){
-              $("#Searchform").attr({ "action":"/training/participants/verificationcsv"});
+              $("#Searchform").attr({ "action":"/bc/training/participants/verificationcsv"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });
         $("#searchbtn").click(function(event){
-                $("#Searchform").attr({ "action":"/training/participants/verification"});
+                $("#Searchform").attr({ "action":"/bc/training/participants/verification"});
                 $("#Searchform").attr("data-pjax", "True");
             })
        }) 
@@ -313,7 +313,7 @@ js;
                     <?php
                     $script = <<< JS
     $('form select').on('change', function(){
-    $("#Searchform").attr({ "action":"/training/participants/verification"});
+    $("#Searchform").attr({ "action":"/bc/training/participants/verification"});
     $("#Searchform").attr("data-pjax", "True");                
     $(this).closest('form').submit();
 });            

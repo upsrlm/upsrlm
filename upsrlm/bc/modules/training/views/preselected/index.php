@@ -316,13 +316,13 @@ $this->params['breadcrumbs'][] = $this->title;
         
         $(document).ready(function(){
             $("#download").click(function(event){
-              $("#Searchform").attr({ "action":"/training/preselected/downloadcsv"});
+              $("#Searchform").attr({ "action":"/bc/training/preselected/downloadcsv"});
               $("#Searchform").removeAttr("data-pjax");
               $("#Searchform").submit();
             });
                  
         $("#searchbtn").click(function(event){
-                $("#Searchform").attr({ "action":"/training/preselected"});
+                $("#Searchform").attr({ "action":"/bc/training/preselected"});
                 $("#Searchform").attr("data-pjax", "True");
             })
        }) 
@@ -333,7 +333,7 @@ js;
                     <?php
                     $script = <<< JS
     $('form select').on('change', function(){
-    $("#Searchform").attr({ "action":"/training/preselected"});
+    $("#Searchform").attr({ "action":"/bc/training/preselected"});
     $("#Searchform").attr("data-pjax", "True");                
     $(this).closest('form').submit();
 });            

@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
 $bundle = SmartAdminAppAsset::register($this);
 $arg = explode('/', Yii::$app->request->url);
 $url = explode('/', Yii::$app->request->url);
+$useCboLayout = Yii::$app->request->baseUrl === '/cbo';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -170,11 +171,11 @@ $url = explode('/', Yii::$app->request->url);
             <div class="page-inner">
                 <?php // $this->assetBundles['yii\web\JqueryAsset'] = [];  ?>
                 <?=
-                $this->render('left.php', ['bundle' => $bundle])
+                $this->render($useCboLayout ? 'left_cbo.php' : 'left.php', ['bundle' => $bundle])
                 ?>
                 <div class="page-content-wrapper">
                     <?=
-                    $this->render('header.php', ['bundle' => $bundle])
+                    $this->render($useCboLayout ? 'header_cbo.php' : 'header.php', ['bundle' => $bundle])
                     ?>
 
                     <?=

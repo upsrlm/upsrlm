@@ -96,8 +96,29 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        echo 'check';exit;
-        return $this->render('index');
+        return $this->redirect(['site/login']);
+    }
+
+    /**
+     * Logs in a user and redirects to the dashboard.
+     *
+     * @return mixed
+     */
+    public function actionLogin()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->redirect(['dashboard/index']);
+        }
+
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->redirect(['dashboard/index']);
+        }
+
+        $model->password = '';
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     public function actionPan($bcid = null)

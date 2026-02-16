@@ -81,7 +81,6 @@ class SiteController extends Controller {
      * @return mixed
      */
     public function actionLogin() {
-        return \Yii::$app->getResponse()->redirect(Yii::$app->params['app_url']['www'] . '/dashboard');
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -105,7 +104,6 @@ class SiteController extends Controller {
      */
     public function actionLogout() {
         Yii::$app->user->logout();
-        return \Yii::$app->getResponse()->redirect(Yii::$app->params['app_url']['www']);
         return $this->goHome();
     }
 
