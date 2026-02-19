@@ -61,6 +61,14 @@ class UserHistory extends \common\models\dynamicdb\cbo\CboactiveRecord {
         return 'user_history';
     }
 
+    /**
+     * Use the main 'db' connection (ho_upsrlm) instead of dbcbo
+     */
+    public static function getDb()
+    {
+        return \Yii::$app->db;
+    }
+
     public function behaviors() {
         return [
             \yii\behaviors\TimestampBehavior::className(),
